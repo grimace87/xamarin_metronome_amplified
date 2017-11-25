@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MetronomeAmplified.SectionNameUpdatePage"
+             BackgroundColor="Wheat">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Grid Margin="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" TextColor="Black" FontSize="Large" Text="Edit Section Name" />
+
+                <Grid Grid.Row="1" ColumnSpacing="0" RowSpacing="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+
+                    <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                    <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                    <Entry BackgroundColor="White" Grid.Row="1" Grid.Column="1" x:Name="entryName" />
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+
+                    <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                    <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+
+                </Grid>
+
+                <Grid Grid.Row="2" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" FontSize="Micro" Text="Update Title" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveName" />
+                    <Button Grid.Column="1" FontSize="Micro" Text="Back" BackgroundColor="SaddleBrown" TextColor="White" Clicked="Return" />
+                </Grid>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MetronomeAmplified.SongPage"
+             BackgroundColor="Wheat">
+    <ContentPage.Content>
+        <Grid Margin="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" TextColor="Black" FontSize="Large" Text="Song" />
+
+            <StackLayout Grid.Row="1" Orientation="Vertical">
+                <Grid ColumnSpacing="0" RowSpacing="0" x:Name="gridCues">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+
+                    <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+
+                    <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        <Label FontSize="Small" Text="Title" HorizontalOptions="Start" />
+                        <Label x:Name="labelSongTitle" FontSize="Small" Text="{Binding SongName}" HorizontalOptions="EndAndExpand" />
+                    </StackLayout>
+
+                    <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+
+                </Grid>
+            </StackLayout>
+
+            <Label Grid.Row="2" FontSize="Medium" TextColor="SaddleBrown" Text="Sections" />
+            
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Default" Text="✕" Clicked="SectionDelete" />
+                <Button Grid.Column="1" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Text="Copy" Clicked="SectionCopy" />
+                <Button Grid.Column="2" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Text="Edit" Clicked="SectionEdit" />
+                <Button Grid.Column="3" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Default" Text="+" Clicked="SectionNew" />
+
+            </Grid>
+
+            <Grid Grid.Row="4" ColumnSpacing="0" RowSpacing="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+
+                <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+
+                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+
+                <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <ListView BackgroundColor="White" ItemsSource="{Binding SongList}" x:Name="listSections">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" TextColor="Black" Text="{Binding GetName}" />
+                                        <Label Grid.Column="1" TextColor="Black" Text="{Binding GetTimeSignatureString}" />
+                                        <Label Grid.Column="2" TextColor="Black" Text="{Binding GetBPMString}" />
+                                        <Label Grid.Column="3" TextColor="Black" Text="{Binding GetRepsString}" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+
+            </Grid>
+
+            <Grid Grid.Row="5" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0" Text="Save Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Clicked="SaveSong" />
+                <Button Grid.Column="1" Text="Load Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Clicked="LoadSong" />
+                <Button Grid.Column="2" Text="New Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Clicked="NewSong" />
+                <Button Grid.Column="3" Text="Back" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Clicked="Return" />
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

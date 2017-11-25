@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MetronomeAmplified"
+             x:Class="MetronomeAmplified.MainPage">
+
+    <RelativeLayout BackgroundColor="Wheat">
+        
+        <Grid ColumnSpacing="0"
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.15}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" BackgroundColor="SaddleBrown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LoadPageTone" NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                <Label FontSize="Micro" TextColor="White" Text="TONE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+            </Grid>
+
+            <Grid Grid.Column="1" BackgroundColor="SaddleBrown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LoadPageSong" NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                <Label FontSize="Micro" TextColor="White" Text="SONG" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+            </Grid>
+
+            <Grid Grid.Column="2" BackgroundColor="SaddleBrown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LoadPageHelp" NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                <Label FontSize="Micro" TextColor="White" Text="HELP" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+            </Grid>
+
+            <Grid Grid.Column="3" BackgroundColor="SaddleBrown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LoadPageSettings" NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                <Label FontSize="Micro" TextColor="White" Text="SETTINGS" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+            </Grid>
+
+        </Grid>
+
+        <AbsoluteLayout BackgroundColor="White" Grid.Row="1" Grid.Column="1" x:Name="layoutSectionDisplay"
+                                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1.0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.15}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.15}"/>
+
+        <Grid Padding="10" RowSpacing="0" ColumnSpacing="0" x:Name="gridMain"
+              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.3}"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.7}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="0" />
+                <RowDefinition Height="0" />
+                <RowDefinition Height="0" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+
+            <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+            <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7" />
+            <Image Source="cornerur.png" Grid.Row="0" Grid.Column="8" />
+
+            <BoxView Grid.Row="1" Grid.Column="0" Grid.RowSpan="8" BackgroundColor="White" />
+            <BoxView Grid.Row="1" Grid.Column="8" Grid.RowSpan="8" BackgroundColor="White" />
+
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" BackgroundColor="White"
+                           FontSize="48" Text="" HorizontalTextAlignment="Center" x:Name="displayTempo">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ResetGain" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <BoxView Grid.Row="2" Grid.Column="1" BackgroundColor="White" />
+            <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="5" FontSize="Medium" BackgroundColor="White" Text="BPM" HorizontalTextAlignment="Center" />
+            <Button Grid.Row="2" Grid.Column="7" BackgroundColor="SaddleBrown" Text="TAP" TextColor="White" Clicked="PressTap" />
+
+            <StackLayout Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" BackgroundColor="White">
+                <Slider x:Name="sliderTempo" Minimum="0" Maximum="100" Value="25" ValueChanged="TempoSliderChanged" />
+            </StackLayout>
+
+            <Label Grid.Row="4" Grid.Column="1" FontSize="Small" BackgroundColor="White" Text="SECTION" HorizontalTextAlignment="Start" />
+            <AbsoluteLayout Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" BackgroundColor="White" Padding="0,5"
+                                    HeightRequest="20" x:Name="layoutProgressSection">
+                <BoxView BackgroundColor="DarkBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,1.0,1.0"
+                                 x:Name="bgSection" />
+                <BoxView BackgroundColor="CornflowerBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,0.4,1.0"
+                                 x:Name="boxProgressSection" />
+            </AbsoluteLayout>
+
+            <Label Grid.Row="5" Grid.Column="1" FontSize="Small" BackgroundColor="White" Text="SONG" HorizontalTextAlignment="Start" />
+            <AbsoluteLayout Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="6" BackgroundColor="White" Padding="0,5"
+                                    HeightRequest="20" x:Name="layoutProgressSong">
+                <BoxView BackgroundColor="DarkBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,1.0,1.0"
+                                 x:Name="bgSong" />
+                <BoxView BackgroundColor="CornflowerBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,0.4,1.0"
+                                 x:Name="boxProgressSong" />
+            </AbsoluteLayout>
+
+            <Label Grid.Row="6" Grid.Column="1" FontSize="Small" BackgroundColor="White" Text="SESSION" HorizontalTextAlignment="Start" />
+            <AbsoluteLayout Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="6" BackgroundColor="White" Padding="0,5"
+                                    HeightRequest="20" x:Name="layoutProgressSession">
+                <BoxView BackgroundColor="DarkBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,1.0,1.0"
+                                 x:Name="bgSession" />
+                <BoxView BackgroundColor="CornflowerBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,0.4,1.0"
+                                 x:Name="boxProgressSession" />
+            </AbsoluteLayout>
+
+            <BoxView BackgroundColor="White" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Image Source="innerul.png" Grid.Row="7" Grid.Column="3" />
+            <Image Source="innerur.png" Grid.Row="7" Grid.Column="5" />
+            <BoxView BackgroundColor="White" Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="2" />
+
+            <BoxView BackgroundColor="White" Grid.Row="8" Grid.Column="2" />
+            <BoxView BackgroundColor="White" Grid.Row="8" Grid.Column="6" />
+
+            <Grid Grid.Row="8" Grid.Column="1" BackgroundColor="SaddleBrown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PressTimer" NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                <Label FontSize="Micro" TextColor="White" Text="TIMER" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+            </Grid>
+
+            <Grid Grid.Row="8" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="rewindbutton.png" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapRewind" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="imagePlayPause" Source="playbutton.png" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapPlayButton" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="0" Grid.Column="4" Source="ffbutton.png" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapFastForward" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="1" Grid.Column="2" Source="pausebutton.png" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapPauseButton" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <Grid Grid.Row="8" Grid.Column="7" BackgroundColor="SaddleBrown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PressLift" NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                <Label FontSize="Micro" TextColor="White" Text="LIFT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+            </Grid>
+
+            <Image Source="cornerbl.png" Grid.Row="9" Grid.Column="0" />
+            <BoxView BackgroundColor="White" Grid.Row="9" Grid.Column="1" />
+            <Image Source="cornerbr.png" Grid.Row="9" Grid.Column="2" />
+            <Image Source="cornerbl.png" Grid.Row="9" Grid.Column="6" />
+            <BoxView BackgroundColor="White" Grid.Row="9" Grid.Column="7" />
+            <Image Source="cornerbr.png" Grid.Row="9" Grid.Column="8" />
+
+        </Grid>
+        
+    </RelativeLayout>
+
+</ContentPage>
