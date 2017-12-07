@@ -43,6 +43,7 @@
     <Compile Include="Classes\Note.cs" />
     <Compile Include="Classes\PlaybackObject.cs" />
     <Compile Include="Classes\Section.cs" />
+    <Compile Include="Classes\SectionLayout.cs" />
     <Compile Include="Classes\SectionList.cs" />
     <Compile Include="Classes\SettingsObject.cs" />
     <Compile Include="Classes\Song.cs" />

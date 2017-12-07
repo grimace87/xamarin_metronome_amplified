@@ -170,7 +170,7 @@ namespace MetronomeAmplified
             }
             finally
             {
-                storage.CloseFile(true);
+                await storage.CloseFile(true);
             }
 
         }
@@ -252,7 +252,7 @@ namespace MetronomeAmplified
             }
             finally
             {
-                storage.CloseFile(false);
+                await storage.CloseFile(false);
             }
             
         }

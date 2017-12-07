@@ -63,7 +63,7 @@ namespace MetronomeAmplified
             song = new Song();
 
             // Update the section display
-            UpdateDisplay();
+            layoutSectionDisplay.MeasurePerformed += () => UpdateDisplay();
             LastProgressSection = false;
             LastProgressSong = false;
             LastProgressSession = false;
@@ -201,7 +201,6 @@ namespace MetronomeAmplified
             if (LastTapTime >= 0 && diff < 2000)
                 SetTempo(60000.0 / diff);
             LastTapTime = reading;
-            //System.Diagnostics.Debug.WriteLine(String.Format("Pressed it after {0} milliseconds.", diff));
         }
         private void PressLift(object sender, EventArgs e)
         {

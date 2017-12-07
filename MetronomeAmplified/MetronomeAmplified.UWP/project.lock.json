@@ -24679,20 +24679,25 @@
     "UAP,Version=v10.0.10586": []
   },
   "packageFolders": {
-    "C:\\Users\\Thomas\\.nuget\\packages\\": {}
+    "C:\\Users\\Thomas\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\VSProjects\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.UWP\\MetronomeAmplified.UWP.csproj",
+      "projectUniqueName": "C:\\Projects\\VS\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.UWP\\MetronomeAmplified.UWP.csproj",
       "projectName": "MetronomeAmplified.UWP",
-      "projectPath": "C:\\VSProjects\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.UWP\\MetronomeAmplified.UWP.csproj",
-      "projectJsonPath": "C:\\VSProjects\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.UWP\\project.json",
+      "projectPath": "C:\\Projects\\VS\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.UWP\\MetronomeAmplified.UWP.csproj",
+      "projectJsonPath": "C:\\Projects\\VS\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.UWP\\project.json",
       "packagesPath": "C:\\Users\\Thomas\\.nuget\\packages\\",
-      "outputPath": "C:\\VSProjects\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.UWP\\obj\\",
+      "outputPath": "C:\\Projects\\VS\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.UWP\\obj\\",
       "projectStyle": "ProjectJson",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\Thomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -24701,16 +24706,16 @@
       "frameworks": {
         "uap10.0.10586": {
           "projectReferences": {
-            "C:\\VSProjects\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.csproj": {
-              "projectPath": "C:\\VSProjects\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.csproj"
+            "C:\\Projects\\VS\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.csproj": {
+              "projectPath": "C:\\Projects\\VS\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified\\MetronomeAmplified.csproj"
             }
           }
         }
       }
     },
     "dependencies": {
-      "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
-      "Xamarin.Forms": "2.4.0.282"
+      "Microsoft.NETCore.UniversalWindowsPlatform": "[5.4.0, )",
+      "Xamarin.Forms": "[2.4.0.282, )"
     },
     "frameworks": {
       "uap10.0.10586": {}

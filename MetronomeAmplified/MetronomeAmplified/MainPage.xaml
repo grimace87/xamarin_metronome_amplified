@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MetronomeAmplified"
+             xmlns:local="clr-namespace:MetronomeAmplified.Classes;assembly=MetronomeAmplified"
              x:Class="MetronomeAmplified.MainPage">
 
     <RelativeLayout BackgroundColor="Wheat">
@@ -67,7 +67,7 @@
 
         </Grid>
 
-        <AbsoluteLayout BackgroundColor="White" Grid.Row="1" Grid.Column="1" x:Name="layoutSectionDisplay"
+        <local:SectionLayout BackgroundColor="White" Grid.Row="1" Grid.Column="1" x:Name="layoutSectionDisplay"
                                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1.0}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.15}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.15}"/>

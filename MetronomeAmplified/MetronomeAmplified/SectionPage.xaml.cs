@@ -68,7 +68,7 @@ namespace MetronomeAmplified
 
             // Validate the section and display it
             CursorPos = 0;
-            UpdateDisplay();
+            layoutSectionDisplay.MeasurePerformed += () => UpdateDisplay();
 
         }
 
