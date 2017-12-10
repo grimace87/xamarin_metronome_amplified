@@ -132,8 +132,11 @@ namespace MetronomeAmplified
         public void UpdateDisplay()
         {
             WorkingSection.CalculateDerivedAttributes();
-            CursorBox = WorkingSection.PopulateSongLayout(this, layoutSectionDisplay, true);
-            SetCursor(CursorPos);
+            if (layoutSectionDisplay.SizeIsValid)
+            {
+                CursorBox = WorkingSection.PopulateSongLayout(this, layoutSectionDisplay, true);
+                SetCursor(CursorPos);
+            }
         }
         public void SetCursor(int noteNumber)
         {
@@ -230,54 +233,132 @@ namespace MetronomeAmplified
         }
         private void EmbellishTie(object sender, EventArgs e)
         {
-            if (CursorPos == WorkingSection.Sequence.Count)
+            // Get values for quick reference
+            int noteCount = WorkingSection.Sequence.Count;
+            Note thisNote = WorkingSection.Sequence[CursorPos];
+            int thisTieString = WorkingSection.Sequence[CursorPos].TieString;
+
+            // Return if cursor positioned after final note, or if there's only one note in the sequence
+            if (CursorPos == noteCount)
                 return;
-            if (WorkingSection.Sequence.Count < 2)
+            if (noteCount < 2)
                 return;
-            if (WorkingSection.Sequence[CursorPos].TieString > 0)
-                WorkingSection.Sequence[CursorPos].TieString = 0;
+            
+            // If its' already tied, remove it and clean up around it
+            if (thisTieString > 0)
+            {
+                // Scan through to find out how many notes precede this one
+                int scan = 0;
+                int countedNotes = 0;
+                while (scan < noteCount)
+                {
+                    // Stop on the target note
+                    if (scan == CursorPos)
+                    {
+                        // Find first and last notes in tie string
+                        int startPos = scan - countedNotes;
+                        int endPos = scan + thisTieString - countedNotes - 1;
+                        // Adjust pre-string
+                        if (countedNotes == 1)
+                            WorkingSection.Sequence[startPos].TieString = 0;
+                        else
+                        {
+                            thisTieString = CursorPos - startPos;
+                            for (scan = startPos; scan < CursorPos; scan++) WorkingSection.Sequence[scan].TieString = thisTieString;
+                        }
+                        // Adjust post-string
+                        if (endPos - CursorPos == 1)
+                            WorkingSection.Sequence[endPos].TieString = 0;
+                        else
+                        {
+                            thisTieString = endPos - CursorPos;
+                            for (scan = CursorPos + 1; scan <= endPos; scan++) WorkingSection.Sequence[scan].TieString = thisTieString;
+                        }
+                        // Finish the job
+
+                        break;
+                    }
+                    // Keep counting and scanning
+                    if (WorkingSection.Sequence[scan].TieString > 0)
+                    {
+                        countedNotes++;
+                        if (countedNotes == WorkingSection.Sequence[scan].TieString)
+                            countedNotes = 0;
+                    }
+                    else countedNotes = 0;
+                    scan++;
+                }
+
+                thisNote.TieString = 0;
+            }
+
+            // If it's not yet tied, join it to the last note (or the next if this is the first note)
             else
             {
                 if (CursorPos == 0)
                 {
-                    // For first note, join to next
                     if (WorkingSection.Sequence[1].TieString == 0)
-                        WorkingSection.Sequence[1].TieString++;
-                    WorkingSection.Sequence[0].TieString = WorkingSection.Sequence[1].TieString + 1;
-                }
-                else
-                {
-                    int prev = WorkingSection.Sequence[CursorPos - 1].TieString;
-                    if (prev == 0)
                     {
-                        // New tie with previous note
-                        WorkingSection.Sequence[CursorPos - 1].TieString = 2;
-                        WorkingSection.Sequence[CursorPos].TieString = 2;
+                        WorkingSection.Sequence[0].TieString = 2;
+                        WorkingSection.Sequence[1].TieString = 2;
                     }
                     else
                     {
-                        // Attach to existing tie preceding this note
-                        prev++;
-                        int count = prev;
-                        int pos = CursorPos;
-                        while (count > 0)
-                        {
-                            WorkingSection.Sequence[pos].TieString = prev;
-                            pos--;
-                            count--;
-                        }
+                        int sequenceLength = WorkingSection.Sequence[1].TieString + 1;
+                        for (int scan = 0; scan < sequenceLength; scan++) WorkingSection.Sequence[scan].TieString = sequenceLength;
                     }
                 }
+                else if (WorkingSection.Sequence[CursorPos - 1].TieString == 0)
+                {
+                    WorkingSection.Sequence[CursorPos - 1].TieString = 2;
+                    WorkingSection.Sequence[CursorPos].TieString = 2;
+                }
+                else
+                {
+                    int sequenceLength = WorkingSection.Sequence[CursorPos - 1].TieString + 1;
+                    for (int scan = CursorPos - sequenceLength + 1; scan <= CursorPos; scan++) WorkingSection.Sequence[scan].TieString = sequenceLength;
+                }
             }
-            WorkingSection.FixTies();
+
+            // Try to correct any problems, and update the display
             UpdateDisplay();
+
         }
         private async void EmbellishTuplet(object sender, EventArgs e)
         {
+            // Get values for quick reference
+            int noteCount = WorkingSection.Sequence.Count;
+            Note thisNote = WorkingSection.Sequence[CursorPos];
+            int thisTieString = WorkingSection.Sequence[CursorPos].TieString;
+
+            // Return if the cursor is after the actual sequence of notes
             if (CursorPos == WorkingSection.Sequence.Count)
                 return;
+
+            // If this is part of a tuplet set, clear the whole set
             if (WorkingSection.Sequence[CursorPos].Tuplet > 0)
-                WorkingSection.Sequence[CursorPos].Tuplet = 0;
+            {
+                // Start scanning from the start to find out where this sequence begins
+                int scan = 0;
+                while (scan < noteCount)
+                {
+                    int tupletType = WorkingSection.Sequence[scan].Tuplet;
+                    if (tupletType > 0)
+                    {
+                        int length = WorkingSection.AttemptTupletSequence(scan, tupletType);
+                        if (scan + length > CursorPos)
+                        {
+                            // It's part of this sequence, so the whole set must be removed
+                            for (int pos = scan; pos < scan + length; pos++)
+                                WorkingSection.Sequence[pos].Tuplet = 0;
+                            break;
+                        }
+                    }
+                    scan++;
+                }
+            }
+
+            // Otherwise, let the user choose a tuplet type and check if it would be valid at this position
             else
             {
                 string tuplet = await DisplayActionSheet("Tuplet grouping", "Cancel", null, TupletTypes);
@@ -294,7 +375,7 @@ namespace MetronomeAmplified
                     case TUP6: type = 6; break;
                     default: return;
                 }
-                int numberOfNotes = WorkingSection.EvaluateTupletSequence(CursorPos, type);
+                int numberOfNotes = WorkingSection.AttemptTupletSequence(CursorPos, type);
                 if (numberOfNotes < 0)
                     await DisplayAlert("Issue", "Cannot begin that tuplet sequence from that position.", "OK");
                 else
@@ -308,7 +389,6 @@ namespace MetronomeAmplified
                     }
                 }
             }
-            WorkingSection.ClearDodgyTuplets();
             UpdateDisplay();
         }
         private void EmbellishDot(object sender, EventArgs e)
@@ -320,13 +400,20 @@ namespace MetronomeAmplified
         }
         private void EmbellishErase(object sender, EventArgs e)
         {
+            // Return if this note cannot be erased (is the only note left, or lies after the actual sequence)
             if (CursorPos == WorkingSection.Sequence.Count || WorkingSection.Sequence.Count == 1)
                 return;
+
+            // Clear a tie properly if there is one
+            if (WorkingSection.Sequence[CursorPos].TieString > 0)
+                EmbellishTie(sender, e);
+
+            // Remove the note and reposition the cursor
             WorkingSection.Sequence.RemoveAt(CursorPos);
             if (CursorPos > 0)
                 CursorPos--;
-            WorkingSection.FixTies();
-            WorkingSection.ClearDodgyTuplets();
+            
+            // Goes and does the thing what it says that it does
             UpdateDisplay();
         }
 

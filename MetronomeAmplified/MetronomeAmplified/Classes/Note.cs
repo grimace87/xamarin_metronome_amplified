@@ -19,28 +19,28 @@ namespace MetronomeAmplified.Classes
         public int TieString;
         public int Accent;
 
-        // First derived attributes
-        public bool FirstOfBeat;
-        public bool LastOfBeat;
-        public bool FirstAfterTuplet;
-        public bool LastBeforeTuplet;
-        public bool IsJoinable;
-        public bool NextIsJoinable;
-        public bool PreviousIsJoinable;
-
-        // Second derived attributes
-        private bool TryToJoinToNext;
-        private int BeamCount;
-        public bool IsTieExtension;
-        public double NoteValue;
+        // Derived attributes
         public int ImageIndex;
+        public double NoteValue;
+        public bool IsTieExtension;
 
-        // The note indices:
+        // The note indices used for indexing the image file array:
         // 0-5:   semibreve ... demisemiquaver
         // 6-11:  dottedsemibreve ... dotteddemisemiquaver
         // 12-17: semibreverest ... demisemibreverest
         // 18-23: dottedsemibreverest ... dotteddemisemiquaverrest
         
+        // Normalised note duration ignoring tuplets
+        public int NormalisedLengthIgnoreTuplets
+        {
+            get
+            {
+                int baseLength = 11340 * (32 / NoteType);
+                if (IsDotted) baseLength = 3 * baseLength / 2;
+                return baseLength;
+            }
+        }
+
         // Constructors for a new note
         public Note(int noteType, int accent) : this(noteType, accent, true) { }
         public Note(int noteType, int accent, bool isSound)
@@ -85,8 +85,6 @@ namespace MetronomeAmplified.Classes
         // Generate derived attributes given that the sequence is invalid
         public void GenerateInvalidSecondaries()
         {
-            BeamCount = 0;
-            TryToJoinToNext = false;
             switch (NoteType)
             {
                 case 1:
