@@ -187,7 +187,7 @@ namespace MetronomeAmplified.Classes
                 // The note image
                 Image img = new Image();
                 img.Aspect = Aspect.AspectFit;
-                if (note.Metadata.NoOfBeams > 0)
+                if ((note.Metadata.NoOfBeams > 0) && (note.Metadata.JoinableToPrevious || note.Metadata.JoinableToNext))
                 {
                     if (note.IsDotted) img.Source = ImageSource.FromFile(FILE_NAMES[8]);
                     else img.Source = ImageSource.FromFile(FILE_NAMES[2]);
@@ -276,8 +276,11 @@ namespace MetronomeAmplified.Classes
             {
                 for (int i = 0; i < numberOfNotes; i++)
                 {
-                    // Figure out if note is beamable
+                    // Figure out if note is beamable at this level
                     if (NoteSequence[i].Metadata.NoOfBeams < beamLevel) continue;
+
+                    // Check that this note will be connected to surrounding notes at all
+                    if ((NoteSequence[i].Metadata.JoinableToPrevious | NoteSequence[i].Metadata.JoinableToNext) == false) continue;
 
                     // Check how many notes to beam
                     int noToBeam = 1;
@@ -301,6 +304,7 @@ namespace MetronomeAmplified.Classes
                     AbsoluteLayout.SetLayoutFlags(boxy, AbsoluteLayoutFlags.None);
                     AbsoluteLayout.SetLayoutBounds(boxy, new Rectangle(AnchorX, (0.2 + 0.05 * beamLevel) * layoutHeight, beamWidth, 0.025 * layoutHeight));
                     layout.Children.Add(boxy);
+                    i += noToBeam - 1;
                 }
             }
 
@@ -310,11 +314,7 @@ namespace MetronomeAmplified.Classes
             for (int i = 0; i < numberOfNotes; i++)
             {
                 tupletCount = NoteSequence[i].Tuplet;
-                if (tupletCount == 0)
-                {
-                    i++;
-                    continue;
-                }
+                if (tupletCount == 0) continue;
                 switch(tupletCount)
                 {
                     case 1: tupletDisplayNumber = 3; break;
@@ -323,7 +323,7 @@ namespace MetronomeAmplified.Classes
                     case 4: tupletDisplayNumber = 7; break;
                     case 5: tupletDisplayNumber = 7; break;
                     case 6: tupletDisplayNumber = 9; break;
-                    default: i++; continue;
+                    default: continue;
                 }
                 tupletCount = AttemptTupletSequence(i, tupletCount);
                 if (tupletCount < 2)
@@ -369,6 +369,43 @@ namespace MetronomeAmplified.Classes
         // Calculate properties of the notes used to make beams
         private void CalculateNoteMetadata()
         {
+            // Take this chance to verify tuplet integrity
+            for (int note = 0; note < NoteSequence.Count; note++)
+            {
+                int tuplet = NoteSequence[note].Tuplet;
+                if (tuplet == 0) continue;
+                int sequenceLength = AttemptTupletSequence(note, tuplet);
+                if (sequenceLength < 2)
+                    NoteSequence[note].Tuplet = 0;
+                else
+                {
+                    bool faultySequence = false;
+                    for (int scan = note; scan < note + sequenceLength; scan++)
+                    {
+                        if (NoteSequence[scan].Tuplet != tuplet)
+                        {
+                            faultySequence = true;
+                            break;
+                        }
+                    }
+                    if (faultySequence)
+                    {
+                        while (note < NoteSequence.Count)
+                        {
+                            if (NoteSequence[note].Tuplet == tuplet)
+                            {
+                                NoteSequence[note].Tuplet = 0;
+                                note++;
+                            }
+                            else
+                                break;
+                        }
+                        continue;
+                    }
+                    note += sequenceLength - 1;
+                }
+            }
+
             // Find out how long each beat is in normalised units, and find whether each note falls on one of those beats
             int beatLength = (BeatValue == 8) && (BeatsPerMeasure % 3 == 0) ? 136080 : 90720;
             int accumulatedLength = 0;
@@ -399,10 +436,14 @@ namespace MetronomeAmplified.Classes
                 }
             }
 
-            // Find out if each note can be connected to the next
+            // Find out if each note can be connected to the next and previous
             for (int note = 0; note < NoteSequence.Count; note++)
             {
                 Note thisNote = NoteSequence[note];
+                thisNote.Metadata.JoinableToPrevious = true;
+                if (note == 0) thisNote.Metadata.JoinableToPrevious = false;
+                else if (thisNote.Metadata.FallsOnBeat) thisNote.Metadata.JoinableToPrevious = false;
+                else if (NoteSequence[note - 1].Metadata.NoOfBeams == 0) thisNote.Metadata.JoinableToPrevious = false;
                 thisNote.Metadata.JoinableToNext = false;
                 if (thisNote.Metadata.NoOfBeams > 0)
                     if (note < NoteSequence.Count - 1)

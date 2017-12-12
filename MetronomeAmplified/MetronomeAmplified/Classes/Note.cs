@@ -154,6 +154,7 @@ namespace MetronomeAmplified.Classes
         {
             public bool FallsOnBeat;
             public bool JoinableToNext;
+            public bool JoinableToPrevious;
             public int NoOfBeams;
         }
 
