@@ -149,6 +149,7 @@ namespace MetronomeAmplified
         // Event handlers to insert and modify notes
         private void InsertSemibreve(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(1, 3));
@@ -156,6 +157,7 @@ namespace MetronomeAmplified
         }
         private void InsertMinim(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(2, 3));
@@ -163,6 +165,7 @@ namespace MetronomeAmplified
         }
         private void InsertCrotchet(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(4, 3));
@@ -170,6 +173,7 @@ namespace MetronomeAmplified
         }
         private void InsertQuaver(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(8, 1));
@@ -177,6 +181,7 @@ namespace MetronomeAmplified
         }
         private void InsertSemiquaver(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(16, 1));
@@ -184,6 +189,7 @@ namespace MetronomeAmplified
         }
         private void InsertDemisemiquaver(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(32, 1));
@@ -191,6 +197,7 @@ namespace MetronomeAmplified
         }
         private void InsertSemibreveRest(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(1, 3, false));
@@ -198,6 +205,7 @@ namespace MetronomeAmplified
         }
         private void InsertMinimRest(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(2, 3, false));
@@ -205,6 +213,7 @@ namespace MetronomeAmplified
         }
         private void InsertCrotchetRest(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(4, 3, false));
@@ -212,6 +221,7 @@ namespace MetronomeAmplified
         }
         private void InsertQuaverRest(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(8, 1, false));
@@ -219,6 +229,7 @@ namespace MetronomeAmplified
         }
         private void InsertSemiquaverRest(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(16, 1, false));
@@ -226,6 +237,7 @@ namespace MetronomeAmplified
         }
         private void InsertDemisemiquaverRest(object sender, EventArgs e)
         {
+            WorkingSection.MetadataIsDirty = true;
             if (CursorPos < WorkingSection.Sequence.Count)
                 WorkingSection.Sequence.RemoveAt(CursorPos);
             WorkingSection.Sequence.Insert(CursorPos, new Note(32, 1, false));
@@ -244,7 +256,7 @@ namespace MetronomeAmplified
             if (noteCount < 2)
                 return;
             
-            // If its' already tied, remove it and clean up around it
+            // If it's already tied, remove it and clean up around it
             if (thisTieString > 0)
             {
                 // Scan through to find out how many notes precede this one
@@ -351,6 +363,7 @@ namespace MetronomeAmplified
                             // It's part of this sequence, so the whole set must be removed
                             for (int pos = scan; pos < scan + length; pos++)
                                 WorkingSection.Sequence[pos].Tuplet = 0;
+                            WorkingSection.MetadataIsDirty = true;
                             break;
                         }
                     }
@@ -387,6 +400,7 @@ namespace MetronomeAmplified
                         setPos++;
                         numberOfNotes--;
                     }
+                    WorkingSection.MetadataIsDirty = true;
                 }
             }
             UpdateDisplay();
@@ -396,6 +410,7 @@ namespace MetronomeAmplified
             if (CursorPos == WorkingSection.Sequence.Count)
                 return;
             WorkingSection.Sequence[CursorPos].IsDotted = !WorkingSection.Sequence[CursorPos].IsDotted;
+            WorkingSection.MetadataIsDirty = true;
             UpdateDisplay();
         }
         private void EmbellishErase(object sender, EventArgs e)

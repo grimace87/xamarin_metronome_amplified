@@ -24,13 +24,16 @@ namespace MetronomeAmplified.Classes
         public double NoteValue;
         public bool IsTieExtension;
 
+        // Beam-related metadata
+        public BeamabilityMetadata Metadata;
+
         // The note indices used for indexing the image file array:
         // 0-5:   semibreve ... demisemiquaver
         // 6-11:  dottedsemibreve ... dotteddemisemiquaver
         // 12-17: semibreverest ... demisemibreverest
         // 18-23: dottedsemibreverest ... dotteddemisemiquaverrest
         
-        // Normalised note duration ignoring tuplets
+        // Normalised note duration, ignoring tuplets or not
         public int NormalisedLengthIgnoreTuplets
         {
             get
@@ -38,6 +41,23 @@ namespace MetronomeAmplified.Classes
                 int baseLength = 11340 * (32 / NoteType);
                 if (IsDotted) baseLength = 3 * baseLength / 2;
                 return baseLength;
+            }
+        }
+        public int NormalisedLengthConsideringTuplets
+        {
+            get
+            {
+                int length = NormalisedLengthIgnoreTuplets;
+                switch (Tuplet)
+                {
+                    case 1: length = (length * 2) / 3; break;
+                    case 2: length = (length * 4) / 5; break;
+                    case 3: length = (length * 4) / 6; break;
+                    case 4: length = (length * 4) / 7; break;
+                    case 5: length = (length * 8) / 7; break;
+                    case 6: length = (length * 8) / 9; break;
+                }
+                return length;
             }
         }
 
@@ -53,8 +73,11 @@ namespace MetronomeAmplified.Classes
             Tuplet = 0;
             Accent = accent;
 
+            // Create the metadata object
+            Metadata = new BeamabilityMetadata();
+
             // Generate the most important derived attributes
-            GenerateInvalidSecondaries();
+            GenerateDerivedAttributes();
 
         }
 
@@ -69,21 +92,14 @@ namespace MetronomeAmplified.Classes
             newNote.Tuplet = original.Tuplet;
 
             // Generate the most important derived attributes
-            newNote.GenerateInvalidSecondaries();
+            newNote.GenerateDerivedAttributes();
 
             // Return
             return newNote;
         }
-
-        // Generate derived attributes where the section is valid and primary attributes are set
-        public void GenerateValidSecondaries()
-        {
-            // Use other case until this function is implemented
-            GenerateInvalidSecondaries();
-        }
-
+        
         // Generate derived attributes given that the sequence is invalid
-        public void GenerateInvalidSecondaries()
+        public void GenerateDerivedAttributes()
         {
             switch (NoteType)
             {
@@ -131,6 +147,14 @@ namespace MetronomeAmplified.Classes
                     case 6: NoteValue *= 8.0 / 9.0; break;
                 }
             }
+        }
+        
+        // Metadata relating to beams, stored within an object of a sub-class, which is invalidated if any part of the note sequence changes
+        public class BeamabilityMetadata
+        {
+            public bool FallsOnBeat;
+            public bool JoinableToNext;
+            public int NoOfBeams;
         }
 
     }
