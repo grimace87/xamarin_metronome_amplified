@@ -388,7 +388,7 @@ namespace MetronomeAmplified
 
             // Trigger the sound playing again
             Note note = song.GetSection(Playback.CurrentSection).Sequence[Playback.CurrentNote];
-            if (note.IsSound /* && note.IsTieExtension == false */)
+            if (note.IsSound && note.IsTieExtension == false)
                 AudioPlayer.PlaySound(note.Accent);
             if (Settings.FlashCues && !flashTimerRunning)
             {

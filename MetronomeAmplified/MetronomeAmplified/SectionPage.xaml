@@ -164,7 +164,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="40" />
                                 <RowDefinition Height="20" />
                             </Grid.RowDefinitions>
 
@@ -175,32 +175,32 @@
                             <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="0" />
                             <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="7" />
 
-                            <Image Grid.Row="1" Grid.Column="1" Source="semibreve.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="1" Source="semibreve.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertSemibreve" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="2" Source="minim.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="2" Source="minim.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertMinim" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="3" Source="crotchet.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="3" Source="crotchet.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertCrotchet" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="4" Source="quaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="4" Source="quaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertQuaver" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="5" Source="semiquaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="5" Source="semiquaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertSemiquaver" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="6" Source="demisemiquaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="6" Source="demisemiquaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertDemisemiquaver" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
@@ -228,7 +228,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="40" />
                                 <RowDefinition Height="20" />
                             </Grid.RowDefinitions>
 
@@ -239,32 +239,32 @@
                             <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="0" />
                             <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="7" />
 
-                            <Image Grid.Row="1" Grid.Column="1" Source="semibreverest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="1" Source="semibreverest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertSemibreveRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="2" Source="minimrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="2" Source="minimrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertMinimRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="3" Source="crotchetrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="3" Source="crotchetrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertCrotchetRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="4" Source="quaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="4" Source="quaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertQuaverRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="5" Source="semiquaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="5" Source="semiquaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertSemiquaverRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="6" Source="demisemiquaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Image Grid.Row="1" Grid.Column="6" Source="demisemiquaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertDemisemiquaverRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
@@ -290,7 +290,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="60" />
                                 <RowDefinition Height="20" />
                             </Grid.RowDefinitions>
 
@@ -309,7 +309,7 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EmbellishTie" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
-                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
                                 <Label FontSize="Micro" TextColor="White" Text="TIE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
                             <Grid Grid.Column="2" Grid.Row="1" BackgroundColor="SaddleBrown">
@@ -320,7 +320,7 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EmbellishTuplet" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
-                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
                                 <Label FontSize="Micro" TextColor="White" Text="TUPLET" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
                             <Grid Grid.Column="3" Grid.Row="1" BackgroundColor="SaddleBrown">
@@ -331,7 +331,7 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EmbellishDot" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
-                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
                                 <Label FontSize="Micro" TextColor="White" Text="DOT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
                             <Grid Grid.Column="4" Grid.Row="1" BackgroundColor="SaddleBrown">
@@ -342,7 +342,7 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EmbellishErase" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
-                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
                                 <Label FontSize="Micro" TextColor="White" Text="ERASE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
 

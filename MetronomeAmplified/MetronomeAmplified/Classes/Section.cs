@@ -227,7 +227,7 @@ namespace MetronomeAmplified.Classes
                         });
                     AnchorX = BlockWidthPerNote * i;
                     AbsoluteLayout.SetLayoutFlags(accentBox, AbsoluteLayoutFlags.None);
-                    AbsoluteLayout.SetLayoutBounds(accentBox, new Rectangle(AnchorX, 0.9 * layoutHeight, BlockWidthPerNote, 0.1 * layoutHeight));
+                    AbsoluteLayout.SetLayoutBounds(accentBox, new Rectangle(AnchorX, 0.8 * layoutHeight, BlockWidthPerNote, 0.2 * layoutHeight));
                     layout.Children.Add(accentBox);
                 }
             }
@@ -265,7 +265,7 @@ namespace MetronomeAmplified.Classes
                 tieWidth = tieCount - 1;
                 AnchorX = FirstNoteXOffset + BlockWidthPerNote * i;
                 AbsoluteLayout.SetLayoutFlags(img, AbsoluteLayoutFlags.None);
-                AbsoluteLayout.SetLayoutBounds(img, new Rectangle(AnchorX, 0.8 * layoutHeight, BlockWidthPerNote * tieWidth, 0.1 * layoutHeight));
+                AbsoluteLayout.SetLayoutBounds(img, new Rectangle(AnchorX, 0.65 * layoutHeight, BlockWidthPerNote * tieWidth, 0.1 * layoutHeight));
                 layout.Children.Add(img);
                 i += tieCount - 1;
             }
@@ -299,7 +299,7 @@ namespace MetronomeAmplified.Classes
                     if (noToBeam == 1)
                     {
                         if (i + 1 == numberOfNotes) AnchorX -= NoteWidth * 0.5;
-                        else if (NoteSequence[i + 1].Metadata.FallsOnBeat) AnchorX -= NoteWidth * 0.5;
+                        else if (NoteSequence[i].Metadata.JoinableToNext == false) AnchorX -= NoteWidth * 0.5;
                     }
                     AbsoluteLayout.SetLayoutFlags(boxy, AbsoluteLayoutFlags.None);
                     AbsoluteLayout.SetLayoutBounds(boxy, new Rectangle(AnchorX, (0.2 + 0.05 * beamLevel) * layoutHeight, beamWidth, 0.025 * layoutHeight));
@@ -353,7 +353,7 @@ namespace MetronomeAmplified.Classes
             if (IsEditable)
             {
                 box.Opacity = 0.4;
-                AbsoluteLayout.SetLayoutBounds(box, new Rectangle(0.0, 0.0, BlockWidthPerNote, layoutHeight));
+                AbsoluteLayout.SetLayoutBounds(box, new Rectangle(0.0, 0.0, BlockWidthPerNote, 0.8 * layoutHeight));
             }
             else
             {
@@ -370,7 +370,8 @@ namespace MetronomeAmplified.Classes
         private void CalculateNoteMetadata()
         {
             // Take this chance to verify tuplet integrity
-            for (int note = 0; note < NoteSequence.Count; note++)
+            int note;
+            for (note = 0; note < NoteSequence.Count; note++)
             {
                 int tuplet = NoteSequence[note].Tuplet;
                 if (tuplet == 0) continue;
@@ -406,17 +407,34 @@ namespace MetronomeAmplified.Classes
                 }
             }
 
+            // Find out which notes are silenced by ties
+            note = 0;
+            while (note < NoteSequence.Count)
+            {
+                NoteSequence[note].IsTieExtension = false;
+                int tieString = NoteSequence[note].TieString;
+                if (tieString > 0)
+                {
+                    int scan;
+                    for (scan = note + 1; scan < note + tieString; scan++)
+                        NoteSequence[scan].IsTieExtension = true;
+                    note = scan;
+                }
+                else
+                    note++;
+            }
+
             // Find out how long each beat is in normalised units, and find whether each note falls on one of those beats
             int beatLength = (BeatValue == 8) && (BeatsPerMeasure % 3 == 0) ? 136080 : 90720;
             int accumulatedLength = 0;
-            for (int note = 0; note < NoteSequence.Count; note++)
+            for (note = 0; note < NoteSequence.Count; note++)
             {
                 NoteSequence[note].Metadata.FallsOnBeat = (accumulatedLength % beatLength) == 0;
                 accumulatedLength += NoteSequence[note].NormalisedLengthConsideringTuplets;
             }
 
             // Find out how many beams each note potentially could have
-            for (int note = 0; note < NoteSequence.Count; note++)
+            for (note = 0; note < NoteSequence.Count; note++)
             {
                 Note thisNote = NoteSequence[note];
                 if (thisNote.IsSound == false)
@@ -437,7 +455,7 @@ namespace MetronomeAmplified.Classes
             }
 
             // Find out if each note can be connected to the next and previous
-            for (int note = 0; note < NoteSequence.Count; note++)
+            for (note = 0; note < NoteSequence.Count; note++)
             {
                 Note thisNote = NoteSequence[note];
                 thisNote.Metadata.JoinableToPrevious = true;
@@ -448,7 +466,8 @@ namespace MetronomeAmplified.Classes
                 if (thisNote.Metadata.NoOfBeams > 0)
                     if (note < NoteSequence.Count - 1)
                         if (NoteSequence[note + 1].Metadata.FallsOnBeat == false)
-                            thisNote.Metadata.JoinableToNext = true;
+                            if (NoteSequence[note + 1].Metadata.NoOfBeams > 0)
+                                thisNote.Metadata.JoinableToNext = true;
                 
             }
         }
@@ -462,7 +481,7 @@ namespace MetronomeAmplified.Classes
         // Get the rectangle to display the cursor over the current note being played
         public Rectangle GetCursorRectangle(int CurrentNote)
         {
-            return new Rectangle(BlockWidthPerNote * CurrentNote, 0.0, BlockWidthPerNote, layoutHeight);
+            return new Rectangle(BlockWidthPerNote * CurrentNote, 0.0, BlockWidthPerNote, 0.8 * layoutHeight);
         }
 
         // Function to action pressing a particular note, or an accent box, given its Id attribute
