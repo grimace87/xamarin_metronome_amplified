@@ -142,9 +142,11 @@
     <Content Include="dottedsemiquaverrest.png" />
     <Content Include="ffbutton.png" />
     <Content Include="hat.wav" />
+    <Content Include="help.png" />
     <Content Include="innerul.png" />
     <Content Include="innerur.png" />
     <Content Include="kick.wav" />
+    <Content Include="lift.png" />
     <Content Include="minim.png" />
     <Content Include="minimrest.png" />
     <Content Include="pausebutton.png" />
@@ -188,11 +190,15 @@
     <Content Include="semibreverest.png" />
     <Content Include="semiquaver.png" />
     <Content Include="semiquaverrest.png" />
+    <Content Include="settings.png" />
     <Content Include="snare.wav" />
+    <Content Include="song.png" />
     <Content Include="stock.png" />
     <Content Include="stopbutton.png" />
     <Content Include="tie.png" />
+    <Content Include="timer.png" />
     <Content Include="tom.wav" />
+    <Content Include="tone.png" />
     <Content Include="tuplet.png" />
     <Content Include="wood_gentle.wav" />
     <Content Include="wood_high.wav" />

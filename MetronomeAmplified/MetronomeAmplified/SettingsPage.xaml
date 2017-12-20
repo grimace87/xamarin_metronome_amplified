@@ -139,7 +139,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Text="Chave Sanges" FontSize="Micro" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveAndReturn" />
+                <Button Grid.Column="0" Text="Save Changes" FontSize="Micro" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveAndReturn" />
                 <Button Grid.Column="1" Text="Defaults" FontSize="Micro" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SetDefaults" />
                 <Button Grid.Column="2" Text="Cancel" FontSize="Micro" BackgroundColor="SaddleBrown" TextColor="White" Clicked="CancelAndReturn" />
             </Grid>

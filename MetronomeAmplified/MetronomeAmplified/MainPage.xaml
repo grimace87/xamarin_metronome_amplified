@@ -25,7 +25,7 @@
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="LoadPageTone" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
-                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                <Image Grid.Row="0" Source="tone.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
                 <Label FontSize="Micro" TextColor="White" Text="TONE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
@@ -37,7 +37,7 @@
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="LoadPageSong" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
-                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                <Image Grid.Row="0" Source="song.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
                 <Label FontSize="Micro" TextColor="White" Text="SONG" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
@@ -49,7 +49,7 @@
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="LoadPageHelp" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
-                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                <Image Grid.Row="0" Source="help.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
                 <Label FontSize="Micro" TextColor="White" Text="HELP" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
@@ -61,7 +61,7 @@
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="LoadPageSettings" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
-                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                <Image Grid.Row="0" Source="settings.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
                 <Label FontSize="Micro" TextColor="White" Text="SETTINGS" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
@@ -166,7 +166,7 @@
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PressTimer" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
-                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                <Image Grid.Row="0" Source="timer.png" Aspect="AspectFit" VerticalOptions="End" HorizontalOptions="Center" />
                 <Label FontSize="Micro" TextColor="White" Text="TIMER" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
@@ -212,7 +212,7 @@
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PressLift" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
-                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                <Image Grid.Row="0" Source="lift.png" Aspect="AspectFit" VerticalOptions="End" HorizontalOptions="Center" />
                 <Label FontSize="Micro" TextColor="White" Text="LIFT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
