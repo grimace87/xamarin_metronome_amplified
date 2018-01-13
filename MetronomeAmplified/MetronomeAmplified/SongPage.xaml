@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" TextColor="Black" FontSize="Large" Text="Song" />
+            <Label Grid.Row="0" TextColor="Black" FontSize="24" Text="Song" />
 
             <StackLayout Grid.Row="1" Orientation="Vertical">
                 <Grid ColumnSpacing="0" RowSpacing="0" x:Name="gridCues">
@@ -50,8 +50,8 @@
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
                         </StackLayout.GestureRecognizers>
-                        <Label FontSize="Small" Text="Title" HorizontalOptions="Start" />
-                        <Label x:Name="labelSongTitle" FontSize="Small" Text="{Binding SongName}" HorizontalOptions="EndAndExpand" />
+                        <Label FontSize="12" Text="Title" HorizontalOptions="Start" />
+                        <Label x:Name="labelSongTitle" FontSize="12" Text="{Binding SongName}" HorizontalOptions="EndAndExpand" />
                     </StackLayout>
 
                     <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
@@ -65,7 +65,7 @@
                 </Grid>
             </StackLayout>
 
-            <Label Grid.Row="2" FontSize="Medium" TextColor="SaddleBrown" Text="Sections" />
+            <Label Grid.Row="2" FontSize="20" TextColor="SaddleBrown" Text="Sections" />
             
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
@@ -75,10 +75,10 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Default" Text="✕" Clicked="SectionDelete" />
-                <Button Grid.Column="1" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Text="Copy" Clicked="SectionCopy" />
-                <Button Grid.Column="2" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Text="Edit" Clicked="SectionEdit" />
-                <Button Grid.Column="3" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Default" Text="+" Clicked="SectionNew" />
+                <Button Grid.Column="0" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="✕" Clicked="SectionDelete" />
+                <Button Grid.Column="1" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="Copy" Clicked="SectionCopy" />
+                <Button Grid.Column="2" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="Edit" Clicked="SectionEdit" />
+                <Button Grid.Column="3" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="+" Clicked="SectionNew" />
 
             </Grid>
 
@@ -142,10 +142,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Button Grid.Column="0" Text="Save Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Clicked="SaveSong" />
-                <Button Grid.Column="1" Text="Load Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Clicked="LoadSong" />
-                <Button Grid.Column="2" Text="New Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Clicked="NewSong" />
-                <Button Grid.Column="3" Text="Back" BackgroundColor="SaddleBrown" TextColor="White" FontSize="Micro" Clicked="Return" />
+                <Button Grid.Column="0" Text="Save Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Clicked="SaveSong" />
+                <Button Grid.Column="1" Text="Load Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Clicked="LoadSong" />
+                <Button Grid.Column="2" Text="New Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Clicked="NewSong" />
+                <Button Grid.Column="3" Text="Back" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Clicked="Return" />
             </Grid>
 
         </Grid>

@@ -15,11 +15,11 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Label Grid.Row="0" TextColor="Black" FontSize="Large" Text="Settings" />
+            <Label Grid.Row="0" TextColor="Black" FontSize="24" Text="Settings" />
             
             <ScrollView Grid.Row="1">
                 <StackLayout Orientation="Vertical">
-                    <Label FontSize="Medium" TextColor="SaddleBrown" Text="Beat Flashing" />
+                    <Label FontSize="20" TextColor="SaddleBrown" Text="Beat Flashing" />
                     <Grid ColumnSpacing="0" RowSpacing="0" x:Name="gridCues">
                         
                         <Grid.ColumnDefinitions>
@@ -51,8 +51,8 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ToggleCues" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
-                            <Label FontSize="Small" Text="Flashing cues" HorizontalOptions="Start" />
-                            <Label x:Name="labelCuesToggle" FontSize="Small" Text="On" HorizontalOptions="EndAndExpand" />
+                            <Label FontSize="12" Text="Flashing cues" HorizontalOptions="Start" />
+                            <Label x:Name="labelCuesToggle" FontSize="12" Text="On" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
                         <BoxView Margin="0,10" BackgroundColor="Wheat" Grid.Row="2" Grid.Column="1" />
@@ -61,8 +61,8 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeCueColor" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
-                            <Label FontSize="Small" Text="Flash color" HorizontalOptions="Start" />
-                            <Label x:Name="labelCueColor" FontSize="Small" Text="Cyan" HorizontalOptions="EndAndExpand" />
+                            <Label FontSize="12" Text="Flash color" HorizontalOptions="Start" />
+                            <Label x:Name="labelCueColor" FontSize="12" Text="Cyan" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
                         <Image Source="cornerbl.png" Grid.Row="4" Grid.Column="0" />
@@ -74,7 +74,7 @@
                         <Image Source="cornerbr.png" Grid.Row="4" Grid.Column="2" />
 
                     </Grid>
-                    <Label FontSize="Medium" TextColor="SaddleBrown" Text="One-Tap Tempo Lift" />
+                    <Label FontSize="20" TextColor="SaddleBrown" Text="One-Tap Tempo Lift" />
                     <Grid ColumnSpacing="0" RowSpacing="0" x:Name="gridTempoLift">
 
                         <Grid.ColumnDefinitions>
@@ -101,7 +101,7 @@
                         <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" />
 
                         <StackLayout Orientation="Horizontal" Padding="10,0,10,10" BackgroundColor="White" Grid.Row="1" Grid.Column="1">
-                            <Label FontSize="Small" Text="Increase frequency" HorizontalOptions="Start" />
+                            <Label FontSize="12" Text="Increase frequency" HorizontalOptions="Start" />
                             <Picker x:Name="pickLiftType" ItemsSource="{Binding GetLiftTypeStrings}" SelectedIndexChanged="AdjustPicker" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
@@ -109,8 +109,8 @@
 
                         <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Vertical" Grid.Row="3" Grid.Column="1">
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="Small" Text="BPM gain" HorizontalOptions="Start" />
-                                <Label x:Name="labelBPMGain" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                                <Label FontSize="12" Text="BPM gain" HorizontalOptions="Start" />
+                                <Label x:Name="labelBPMGain" FontSize="12" HorizontalOptions="EndAndExpand" />
                             </StackLayout>
                             <Slider x:Name="sliderBPMGain" Minimum="0" Maximum="100" Value="20" />
                         </StackLayout>
@@ -119,8 +119,8 @@
 
                         <StackLayout Padding="10,10,10,0" BackgroundColor="White" Orientation="Vertical" Grid.Row="5" Grid.Column="1" x:Name="layoutDuration">
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="Small" Text="Duration" HorizontalOptions="Start" />
-                                <Label x:Name="labelDuration" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                                <Label FontSize="12" Text="Duration" HorizontalOptions="Start" />
+                                <Label x:Name="labelDuration" FontSize="12" HorizontalOptions="EndAndExpand" />
                             </StackLayout>
                             <Slider x:Name="sliderDuration" Minimum="0" Maximum="100" Value="30" />
                         </StackLayout>
@@ -139,9 +139,9 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Text="Save Changes" FontSize="Micro" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveAndReturn" />
-                <Button Grid.Column="1" Text="Defaults" FontSize="Micro" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SetDefaults" />
-                <Button Grid.Column="2" Text="Cancel" FontSize="Micro" BackgroundColor="SaddleBrown" TextColor="White" Clicked="CancelAndReturn" />
+                <Button Grid.Column="0" Text="Save Changes" FontSize="12" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveAndReturn" />
+                <Button Grid.Column="1" Text="Defaults" FontSize="12" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SetDefaults" />
+                <Button Grid.Column="2" Text="Cancel" FontSize="12" BackgroundColor="SaddleBrown" TextColor="White" Clicked="CancelAndReturn" />
             </Grid>
             
         </Grid>

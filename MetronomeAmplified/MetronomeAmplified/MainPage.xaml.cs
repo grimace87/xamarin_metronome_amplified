@@ -63,7 +63,33 @@ namespace MetronomeAmplified
             song = new Song();
 
             // Update the section display
-            layoutSectionDisplay.MeasurePerformed += () => UpdateDisplay();
+            this.SizeChanged += (sender, e) => {
+
+                // Get content window sizes
+                double width = this.Width;
+                double height = this.Height;
+
+                // Size according to orientation
+                double ctrlSize = width > height ? 0.15 * (this.Height - 40) : 0.25 * (this.Width - 40);
+                BottomCtrlRow.Height = ctrlSize;
+                CtrlColumn1.Width = ctrlSize;
+                CtrlColumn2.Width = ctrlSize;
+                ctrlSize = width > height ? 0.15 * (this.Height + 20) : 0.25 * (this.Width + 20);
+                PlaybackCtrlPlayStop.WidthRequest = ctrlSize * 0.5;
+                PlaybackCtrlPlayStop.HeightRequest = ctrlSize * 0.5;
+                PlaybackCtrlRewind.WidthRequest = ctrlSize * 0.3;
+                PlaybackCtrlRewind.HeightRequest = ctrlSize * 0.3;
+                PlaybackCtrlForward.WidthRequest = ctrlSize * 0.3;
+                PlaybackCtrlForward.HeightRequest = ctrlSize * 0.3;
+                PlaybackCtrlPause.WidthRequest = ctrlSize * 0.3;
+                PlaybackCtrlPause.HeightRequest = ctrlSize * 0.3;
+
+                // Populate the song display
+                UpdateDisplay();
+
+
+            };
+            
             LastProgressSection = false;
             LastProgressSong = false;
             LastProgressSession = false;
@@ -122,7 +148,7 @@ namespace MetronomeAmplified
                 {
                     bgSection.IsVisible = true;
                     boxProgressSection.IsVisible = true;
-                    gridMain.RowDefinitions[4].Height = GridLength.Auto;
+                    gridMain.RowDefinitions[5].Height = GridLength.Auto;
                 }
                 Rectangle rect = AbsoluteLayout.GetLayoutBounds(boxProgressSection);
                 rect.Width = ((double)Playback.CurrentRep) / ((double)song.Sections[Playback.CurrentSection].Repetitions);
@@ -135,7 +161,7 @@ namespace MetronomeAmplified
                 {
                     bgSection.IsVisible = false;
                     boxProgressSection.IsVisible = false;
-                    gridMain.RowDefinitions[4].Height = 0;
+                    gridMain.RowDefinitions[5].Height = 0;
                 }
                 LastProgressSection = false;
             }
@@ -148,7 +174,7 @@ namespace MetronomeAmplified
                 {
                     bgSong.IsVisible = true;
                     boxProgressSong.IsVisible = true;
-                    gridMain.RowDefinitions[5].Height = GridLength.Auto;
+                    gridMain.RowDefinitions[6].Height = GridLength.Auto;
                 }
                 Rectangle rect = AbsoluteLayout.GetLayoutBounds(boxProgressSong);
                 rect.Width = ((double)Playback.CurrentSection) / ((double)song.NumberOfSections);
@@ -161,7 +187,7 @@ namespace MetronomeAmplified
                 {
                     bgSong.IsVisible = false;
                     boxProgressSong.IsVisible = false;
-                    gridMain.RowDefinitions[5].Height = 0;
+                    gridMain.RowDefinitions[6].Height = 0;
                 }
                 LastProgressSong = false;
             }
@@ -174,7 +200,7 @@ namespace MetronomeAmplified
                 {
                     bgSession.IsVisible = true;
                     boxProgressSession.IsVisible = true;
-                    gridMain.RowDefinitions[6].Height = GridLength.Auto;
+                    gridMain.RowDefinitions[7].Height = GridLength.Auto;
                 }
                 Rectangle rect = AbsoluteLayout.GetLayoutBounds(boxProgressSession);
                 rect.Width = Playback.SessionTime / Playback.SessionLimit;
@@ -187,7 +213,7 @@ namespace MetronomeAmplified
                 {
                     bgSession.IsVisible = false;
                     boxProgressSession.IsVisible = false;
-                    gridMain.RowDefinitions[6].Height = 0;
+                    gridMain.RowDefinitions[7].Height = 0;
                 }
                 LastProgressSession = false;
             }
@@ -290,7 +316,7 @@ namespace MetronomeAmplified
         public void ActionPlay()
         {
             // Set the state to playing
-            imagePlayPause.Source = "stopbutton.png";
+            PlaybackCtrlPlayStop.Source = "stopbutton.png";
             Playback.IsPlaying = true;
 
             // Adjust the display
@@ -310,7 +336,7 @@ namespace MetronomeAmplified
             Playback.IsPlaying = false;
             timer.Stop();
             AudioPlayer.StopAudio();
-            imagePlayPause.Source = "playbutton.png";
+            PlaybackCtrlPlayStop.Source = "playbutton.png";
             SectionIndicatorBox.IsVisible = false;
         }
         private void ActionStop()
@@ -318,7 +344,7 @@ namespace MetronomeAmplified
             Playback.IsPlaying = false;
             timer.Stop();
             AudioPlayer.StopAudio();
-            imagePlayPause.Source = "playbutton.png";
+            PlaybackCtrlPlayStop.Source = "playbutton.png";
             SectionIndicatorBox.IsVisible = false;
 
             if (Playback.CurrentSection > 0)

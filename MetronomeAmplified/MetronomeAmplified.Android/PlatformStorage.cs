@@ -121,6 +121,12 @@ namespace MetronomeAmplified.Droid
             }
             return true;
         }
+        public async Task<bool> DeleteFile(string fileName)
+        {
+            Java.IO.File dir = ThisContext.GetDir("songs", FileCreationMode.Private);
+            Java.IO.File file = new Java.IO.File(dir, fileName);
+            return file.Delete();
+        }
         public async Task CloseFile(bool fileWasForWriting)
         {
             if (fileWasForWriting)

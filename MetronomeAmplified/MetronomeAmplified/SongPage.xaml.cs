@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 
 using MetronomeAmplified.Classes;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MetronomeAmplified
 {
@@ -83,9 +84,9 @@ namespace MetronomeAmplified
         private void SectionEdit(object sender, EventArgs e)
         {
             Section selected = (Section)listSections.SelectedItem;
-            if (selected == null)
-                return;
-            Navigation.PushAsync(new SectionPage(this, CurrentSong.Sections, CurrentSong.Sections.IndexOf(selected)));
+            int index = CurrentSong.Sections.IndexOf(selected);
+            if (index >= 0)
+                Navigation.PushAsync(new SectionPage(this, CurrentSong.Sections, index));
         }
         private void SectionNew(object sender, EventArgs e)
         {
@@ -185,11 +186,40 @@ namespace MetronomeAmplified
 
             IPlatformStorage storage = ParentPage.PlatformStorage;
             string[] fileList = await storage.GetExistingFileList();
-            string choice = await DisplayActionSheet("Load which song?", "Cancel", null, fileList);
-            if (choice == "Cancel")
-                return;
 
-            await storage.OpenFile(choice, false);
+            await Navigation.PushAsync(new SongSelectPage(this, fileList));
+            
+        }
+        private async void NewSong(object sender, EventArgs e)
+        {
+            if (SongHasUnsavedChanges)
+            {
+                bool confirm = await DisplayAlert("Question", "The current song has unsaved changes. Are you sure you want to create a new song?", "Yes", "No");
+                if (!confirm)
+                    return;
+            }
+            
+            // Update things on this page
+            SongName = await ParentPage.PlatformStorage.GetNewSongName();
+            SongList.Clear();
+            SongList.Add(Section.GetNewBasicSection());
+            ParentPage.UpdateDisplay();
+
+            SongHasUnsavedChanges = false;
+        }
+        private async void Return(object sender, EventArgs e)
+        {
+            // Return to main page
+            ParentPage.UpdateDisplay();
+            ParentPage.RefreshTempo();
+            await Navigation.PopAsync();
+        }
+
+        public async void LoadSong(string fileName)
+        {
+
+            IPlatformStorage storage = ParentPage.PlatformStorage;
+            await storage.OpenFile(fileName, false);
             try
             {
                 // Get song details
@@ -254,31 +284,14 @@ namespace MetronomeAmplified
             {
                 await storage.CloseFile(false);
             }
-            
-        }
-        private async void NewSong(object sender, EventArgs e)
-        {
-            if (SongHasUnsavedChanges)
-            {
-                bool confirm = await DisplayAlert("Question", "The current song has unsaved changes. Are you sure you want to create a new song?", "Yes", "No");
-                if (!confirm)
-                    return;
-            }
-            
-            // Update things on this page
-            SongName = await ParentPage.PlatformStorage.GetNewSongName();
-            SongList.Clear();
-            SongList.Add(Section.GetNewBasicSection());
-            ParentPage.UpdateDisplay();
 
-            SongHasUnsavedChanges = false;
         }
-        private async void Return(object sender, EventArgs e)
+
+        public async Task<bool> DeleteSong(string fileName)
         {
-            // Return to main page
-            ParentPage.UpdateDisplay();
-            ParentPage.RefreshTempo();
-            await Navigation.PopAsync();
+            IPlatformStorage storage = ParentPage.PlatformStorage;
+            bool success = await storage.DeleteFile(fileName);
+            return success;
         }
     }
 }

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MetronomeAmplified.SongSelectPage"
+             BackgroundColor="Wheat">
+    <ContentPage.Content>
+        <StackLayout Margin="20" Orientation="Vertical">
+            
+            <Label TextColor="Black" FontSize="20" Text="Load Song File" />
+
+            <Grid VerticalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+
+                <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+
+                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+
+                <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <ListView BackgroundColor="White" ItemsSource="{Binding SongFiles}" x:Name="listSongs">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding GetName}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+
+                <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+
+            </Grid>
+
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" FontSize="12" Text="Load Song" BackgroundColor="SaddleBrown" TextColor="White" Clicked="LoadSong" />
+                <Button Grid.Column="1" FontSize="12" Text="Delete Song" BackgroundColor="SaddleBrown" TextColor="White" Clicked="DeleteSong" />
+                <Button Grid.Column="2" FontSize="12" Text="Cancel" BackgroundColor="SaddleBrown" TextColor="White" Clicked="Cancel" />
+            </Grid>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

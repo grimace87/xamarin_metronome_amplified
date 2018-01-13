@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="MetronomeAmplified.Android">
+    <service android:name=".ActionService" />
     <receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
       <intent-filter>
         <action android:name="android.intent.action.MEDIA_BUTTON" />

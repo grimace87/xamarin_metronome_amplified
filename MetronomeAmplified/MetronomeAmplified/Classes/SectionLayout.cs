@@ -23,7 +23,7 @@ namespace MetronomeAmplified.Classes
             width = widthConstraint;
             height = heightConstraint;
             sizeValid = true;
-            MeasurePerformed();
+            MeasurePerformed?.Invoke();
         }
 
         public event SectionMeasuredHandler MeasurePerformed;

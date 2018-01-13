@@ -122,6 +122,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MediaButtonService.cs" />
     <Compile Include="MediaSessionCallbacks.cs" />

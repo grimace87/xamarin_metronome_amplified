@@ -16,7 +16,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" TextColor="Black" FontSize="Large" Text="Edit Section Name" />
+                <Label Grid.Row="0" TextColor="Black" FontSize="20" Text="Edit Section Name" />
 
                 <Grid Grid.Row="1" ColumnSpacing="0" RowSpacing="0">
 
@@ -51,8 +51,8 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" FontSize="Micro" Text="Update Title" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveName" />
-                    <Button Grid.Column="1" FontSize="Micro" Text="Back" BackgroundColor="SaddleBrown" TextColor="White" Clicked="Return" />
+                    <Button Grid.Column="0" FontSize="12" Text="Update Title" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveName" />
+                    <Button Grid.Column="1" FontSize="12" Text="Cancel" BackgroundColor="SaddleBrown" TextColor="White" Clicked="Return" />
                 </Grid>
 
             </Grid>

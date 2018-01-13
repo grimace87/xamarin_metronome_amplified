@@ -22,6 +22,7 @@ namespace MetronomeAmplified.Classes
         Task<string[]> GetExistingFileList();
         Task<bool> FileExists(string fileName);
         Task<bool> OpenFile(string fileName, bool forWriting);
+        Task<bool> DeleteFile(string fileName);
         Task CloseFile(bool fileWasForWriting);
         string FileReadString();
         int FileReadInt();

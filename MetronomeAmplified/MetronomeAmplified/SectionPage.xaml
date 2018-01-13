@@ -16,11 +16,11 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" TextColor="Black" FontSize="Large" Text="Section" />
+            <Label Grid.Row="0" TextColor="Black" FontSize="24" Text="Section" />
 
             <ScrollView Grid.Row="1">
                 <StackLayout Orientation="Vertical">
-                    <Label FontSize="Medium" TextColor="SaddleBrown" Text="Properties" />
+                    <Label FontSize="20" TextColor="SaddleBrown" Text="Properties" />
                     <Grid ColumnSpacing="0" RowSpacing="0" x:Name="gridCues">
 
                         <Grid.ColumnDefinitions>
@@ -53,8 +53,8 @@
                         <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="11" />
 
                         <StackLayout Padding="5,0,5,5" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                            <Label FontSize="Small" Text="Song Title" HorizontalOptions="Start" />
-                            <Label FontSize="Small" Text="{Binding GetSongTitle}" HorizontalOptions="EndAndExpand" />
+                            <Label FontSize="12" Text="Song Title" HorizontalOptions="Start" />
+                            <Label FontSize="12" Text="{Binding GetSongTitle}" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
                         <BoxView Margin="0,10" BackgroundColor="Wheat" Grid.Row="2" Grid.Column="1" />
@@ -63,8 +63,8 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeSectionName" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
-                            <Label FontSize="Small" Text="Section Name" HorizontalOptions="Start" />
-                            <Label FontSize="Small" Text="{Binding SectionName}" HorizontalOptions="EndAndExpand" />
+                            <Label FontSize="12" Text="Section Name" HorizontalOptions="Start" />
+                            <Label FontSize="12" Text="{Binding SectionName}" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
                         <BoxView Margin="0,10" BackgroundColor="Wheat" Grid.Row="4" Grid.Column="1" />
@@ -73,7 +73,7 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeBeatsPerMeasure" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
-                            <Label FontSize="Small" Text="Beats Per Measure" HorizontalOptions="Start" />
+                            <Label FontSize="12" Text="Beats Per Measure" HorizontalOptions="Start" />
                             <Picker ItemsSource="{Binding GetBeatPerMeasureList}" x:Name="pickBeatsPerMeasure" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
@@ -83,7 +83,7 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeBeatValue" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
-                            <Label FontSize="Small" Text="Beat Value" HorizontalOptions="Start" />
+                            <Label FontSize="12" Text="Beat Value" HorizontalOptions="Start" />
                             <Picker ItemsSource="{Binding GetBeatValueList}" x:Name="pickBeatValue" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
@@ -91,8 +91,8 @@
 
                         <StackLayout Padding="5,5,5,5" BackgroundColor="White" Orientation="Vertical" Grid.Row="9" Grid.Column="1">
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="Small" Text="Tempo" HorizontalOptions="Start" />
-                                <Label x:Name="labelTempo" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                                <Label FontSize="12" Text="Tempo" HorizontalOptions="Start" />
+                                <Label x:Name="labelTempo" FontSize="12" HorizontalOptions="EndAndExpand" />
                             </StackLayout>
                             <Slider x:Name="sliderTempo" Minimum="0" Maximum="100" Value="25" ValueChanged="TempoSliderChanged" />
                         </StackLayout>
@@ -105,9 +105,9 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" BackgroundColor="SaddleBrown" FontSize="Default" TextColor="White" Text="-" Clicked="DecrementReps" />
-                            <Label Grid.Column="1" x:Name="labelReps" FontSize="Small" HorizontalTextAlignment="Center" />
-                            <Button Grid.Column="2" BackgroundColor="SaddleBrown" FontSize="Default" TextColor="White" Text="+" Clicked="IncrementReps" />
+                            <Button Grid.Column="0" WidthRequest="20" HeightRequest="20" BackgroundColor="SaddleBrown" FontSize="12" TextColor="White" Text="-" Clicked="DecrementReps" />
+                            <Label Grid.Column="1" x:Name="labelReps" FontSize="12" HorizontalTextAlignment="Center" />
+                            <Button Grid.Column="2" WidthRequest="20" HeightRequest="20" BackgroundColor="SaddleBrown" FontSize="12" TextColor="White" Text="+" Clicked="IncrementReps" />
                         </Grid>
 
                         <Image Source="cornerbl.png" Grid.Row="12" Grid.Column="0" />
@@ -119,7 +119,7 @@
                         <Image Source="cornerbr.png" Grid.Row="12" Grid.Column="2" />
 
                     </Grid>
-                    <Label FontSize="Medium" TextColor="SaddleBrown" Text="Edit Section" />
+                    <Label FontSize="20" TextColor="SaddleBrown" Text="Edit Section" />
                     <Grid ColumnSpacing="0" RowSpacing="0">
 
                         <Grid.ColumnDefinitions>
@@ -310,7 +310,7 @@
                                     <TapGestureRecognizer Tapped="EmbellishTie" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
                                 <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                                <Label FontSize="Micro" TextColor="White" Text="TIE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                                <Label FontSize="12" TextColor="White" Text="TIE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
                             <Grid Grid.Column="2" Grid.Row="1" BackgroundColor="SaddleBrown">
                                 <Grid.RowDefinitions>
@@ -321,7 +321,7 @@
                                     <TapGestureRecognizer Tapped="EmbellishTuplet" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
                                 <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                                <Label FontSize="Micro" TextColor="White" Text="TUPLET" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                                <Label FontSize="12" TextColor="White" Text="TUPLET" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
                             <Grid Grid.Column="3" Grid.Row="1" BackgroundColor="SaddleBrown">
                                 <Grid.RowDefinitions>
@@ -332,7 +332,7 @@
                                     <TapGestureRecognizer Tapped="EmbellishDot" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
                                 <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                                <Label FontSize="Micro" TextColor="White" Text="DOT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                                <Label FontSize="12" TextColor="White" Text="DOT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
                             <Grid Grid.Column="4" Grid.Row="1" BackgroundColor="SaddleBrown">
                                 <Grid.RowDefinitions>
@@ -343,7 +343,7 @@
                                     <TapGestureRecognizer Tapped="EmbellishErase" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
                                 <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                                <Label FontSize="Micro" TextColor="White" Text="ERASE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                                <Label FontSize="12" TextColor="White" Text="ERASE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
 
                             <Image Source="bcornerbl.png" Grid.Row="2" Grid.Column="0" />
