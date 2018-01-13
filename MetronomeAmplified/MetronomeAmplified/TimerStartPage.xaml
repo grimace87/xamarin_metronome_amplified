@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MetronomeAmplified.TimerStartPage"
-             BackgroundColor="Wheat">
+             BackgroundImage="wood_bg_texture.jpg">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
             <Grid Margin="20">
@@ -16,7 +16,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" TextColor="Black" FontSize="20" Text="Start Session Timer" />
+                <Label Grid.Row="0" TextColor="Wheat" FontSize="20" Text="Start Session Timer" />
 
                 <Grid Grid.Row="1" ColumnSpacing="0" RowSpacing="0">
 
@@ -32,23 +32,23 @@
                         <RowDefinition Height="20" />
                     </Grid.RowDefinitions>
 
-                    <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                    <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
-                    <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                    <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                    <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
-                    <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                    <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                         <StackLayout Orientation="Horizontal">
                             <Label FontSize="12" Text="Session length" HorizontalOptions="Start" />
                             <Label x:Name="labelSessionTime" FontSize="12" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
                         <Slider x:Name="sliderSessionTime" Minimum="0" Maximum="100" Value="25" />
                     </StackLayout>
-                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
 
-                    <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
-                    <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
-                    <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+                    <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                    <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
 
                 </Grid>
 

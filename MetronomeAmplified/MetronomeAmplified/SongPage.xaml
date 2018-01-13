@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MetronomeAmplified.SongPage"
-             BackgroundColor="Wheat">
+             BackgroundImage="wood_bg_texture.jpg">
     <ContentPage.Content>
         <Grid Margin="20">
 
@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" TextColor="Black" FontSize="24" Text="Song" />
+            <Label Grid.Row="0" TextColor="White" FontSize="24" Text="Song" />
 
             <StackLayout Grid.Row="1" Orientation="Vertical">
                 <Grid ColumnSpacing="0" RowSpacing="0" x:Name="gridCues">
@@ -35,37 +35,37 @@
                         <RowDefinition Height="20" />
                     </Grid.RowDefinitions>
 
-                    <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                    <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1">
+                    <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
-                    <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                    <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
-                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
 
-                    <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                    <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
                         </StackLayout.GestureRecognizers>
-                        <Label FontSize="12" Text="Title" HorizontalOptions="Start" />
-                        <Label x:Name="labelSongTitle" FontSize="12" Text="{Binding SongName}" HorizontalOptions="EndAndExpand" />
+                        <Label FontSize="12" TextColor="Black" Text="Title" HorizontalOptions="Start" />
+                        <Label x:Name="labelSongTitle" FontSize="12" TextColor="Black" Text="{Binding SongName}" HorizontalOptions="EndAndExpand" />
                     </StackLayout>
 
-                    <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
-                    <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1">
+                    <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="2" Grid.Column="1">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
-                    <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+                    <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
 
                 </Grid>
             </StackLayout>
 
-            <Label Grid.Row="2" FontSize="20" TextColor="SaddleBrown" Text="Sections" />
+            <Label Grid.Row="2" FontSize="20" TextColor="Wheat" Text="Sections" />
             
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
@@ -75,7 +75,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="✕" Clicked="SectionDelete" />
+                <Button Grid.Column="0" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="✘" Clicked="SectionDelete" />
                 <Button Grid.Column="1" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="Copy" Clicked="SectionCopy" />
                 <Button Grid.Column="2" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="Edit" Clicked="SectionEdit" />
                 <Button Grid.Column="3" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="+" Clicked="SectionNew" />
@@ -96,15 +96,15 @@
                     <RowDefinition Height="20" />
                 </Grid.RowDefinitions>
 
-                <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
-                <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
-                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
 
-                <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
-                    <ListView BackgroundColor="White" ItemsSource="{Binding SongList}" x:Name="listSections">
+                <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <ListView ItemsSource="{Binding SongList}" x:Name="listSections">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -126,9 +126,9 @@
                     </ListView>
                 </StackLayout>
 
-                <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
-                <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
-                <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+                <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
 
             </Grid>
 

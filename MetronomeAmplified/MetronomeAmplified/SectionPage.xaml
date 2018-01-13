@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MetronomeAmplified.Classes;assembly=MetronomeAmplified"
              x:Class="MetronomeAmplified.SectionPage"
-             BackgroundColor="Wheat">
+             BackgroundImage="wood_bg_texture.jpg">
     <ContentPage.Content>
         <Grid Margin="20">
 
@@ -16,11 +16,11 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" TextColor="Black" FontSize="24" Text="Section" />
+            <Label Grid.Row="0" TextColor="White" FontSize="24" Text="Section" />
 
             <ScrollView Grid.Row="1">
                 <StackLayout Orientation="Vertical">
-                    <Label FontSize="20" TextColor="SaddleBrown" Text="Properties" />
+                    <Label FontSize="20" TextColor="Wheat" Text="Properties" />
                     <Grid ColumnSpacing="0" RowSpacing="0" x:Name="gridCues">
 
                         <Grid.ColumnDefinitions>
@@ -31,13 +31,13 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="40" />
                             <RowDefinition Height="2" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="40" />
                             <RowDefinition Height="2" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="40" />
                             <RowDefinition Height="2" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="40" />
                             <RowDefinition Height="2" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="2" />
@@ -45,21 +45,21 @@
                             <RowDefinition Height="20" />
                         </Grid.RowDefinitions>
 
-                        <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                        <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
-                        <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                        <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                        <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                        <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="11" />
-                        <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="11" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="11" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="11" />
 
-                        <StackLayout Padding="5,0,5,5" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                        <StackLayout Padding="5,0,5,5" Opacity="0.75" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                             <Label FontSize="12" Text="Song Title" HorizontalOptions="Start" />
                             <Label FontSize="12" Text="{Binding GetSongTitle}" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
-                        <BoxView Margin="0,10" BackgroundColor="Wheat" Grid.Row="2" Grid.Column="1" />
+                        <BoxView Margin="0,10" Opacity="0.75" BackgroundColor="Wheat" Grid.Row="2" Grid.Column="1" />
 
-                        <StackLayout Padding="5,5,5,5" BackgroundColor="White" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                        <StackLayout Padding="5,5,5,5" Opacity="0.75" BackgroundColor="White" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeSectionName" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
@@ -67,9 +67,9 @@
                             <Label FontSize="12" Text="{Binding SectionName}" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
-                        <BoxView Margin="0,10" BackgroundColor="Wheat" Grid.Row="4" Grid.Column="1" />
+                        <BoxView Margin="0,10" Opacity="0.75" BackgroundColor="Wheat" Grid.Row="4" Grid.Column="1" />
 
-                        <StackLayout Padding="5,0,5,0" BackgroundColor="White" Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
+                        <StackLayout Padding="5,0,5,0" Opacity="0.75" BackgroundColor="White" Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeBeatsPerMeasure" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
@@ -77,9 +77,9 @@
                             <Picker ItemsSource="{Binding GetBeatPerMeasureList}" x:Name="pickBeatsPerMeasure" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
-                        <BoxView Margin="0,10" BackgroundColor="Wheat" Grid.Row="6" Grid.Column="1" />
+                        <BoxView Margin="0,10" Opacity="0.75" BackgroundColor="Wheat" Grid.Row="6" Grid.Column="1" />
 
-                        <StackLayout Padding="5,0,5,0" BackgroundColor="White" Orientation="Horizontal" Grid.Row="7" Grid.Column="1">
+                        <StackLayout Padding="5,0,5,0" Opacity="0.75" BackgroundColor="White" Orientation="Horizontal" Grid.Row="7" Grid.Column="1">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeBeatValue" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
@@ -87,9 +87,9 @@
                             <Picker ItemsSource="{Binding GetBeatValueList}" x:Name="pickBeatValue" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
-                        <BoxView Margin="0,10" BackgroundColor="Wheat" Grid.Row="8" Grid.Column="1" />
+                        <BoxView Margin="0,10" Opacity="0.75" BackgroundColor="Wheat" Grid.Row="8" Grid.Column="1" />
 
-                        <StackLayout Padding="5,5,5,5" BackgroundColor="White" Orientation="Vertical" Grid.Row="9" Grid.Column="1">
+                        <StackLayout Padding="5,5,5,5" Opacity="0.75" BackgroundColor="White" Orientation="Vertical" Grid.Row="9" Grid.Column="1">
                             <StackLayout Orientation="Horizontal">
                                 <Label FontSize="12" Text="Tempo" HorizontalOptions="Start" />
                                 <Label x:Name="labelTempo" FontSize="12" HorizontalOptions="EndAndExpand" />
@@ -97,29 +97,29 @@
                             <Slider x:Name="sliderTempo" Minimum="0" Maximum="100" Value="25" ValueChanged="TempoSliderChanged" />
                         </StackLayout>
 
-                        <BoxView Margin="0,10" BackgroundColor="Wheat" Grid.Row="10" Grid.Column="1" />
+                        <BoxView Margin="0,10" Opacity="0.75" BackgroundColor="Wheat" Grid.Row="10" Grid.Column="1" />
 
-                        <Grid Padding="5,5,5,0" BackgroundColor="White" Grid.Row="11" Grid.Column="1">
+                        <Grid Padding="5,5,5,0" Opacity="0.75" BackgroundColor="White" Grid.Row="11" Grid.Column="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" WidthRequest="20" HeightRequest="20" BackgroundColor="SaddleBrown" FontSize="12" TextColor="White" Text="-" Clicked="DecrementReps" />
-                            <Label Grid.Column="1" x:Name="labelReps" FontSize="12" HorizontalTextAlignment="Center" />
-                            <Button Grid.Column="2" WidthRequest="20" HeightRequest="20" BackgroundColor="SaddleBrown" FontSize="12" TextColor="White" Text="+" Clicked="IncrementReps" />
+                            <Button Grid.Column="0" WidthRequest="50" HeightRequest="50" BackgroundColor="SaddleBrown" FontSize="18" TextColor="White" Text="−" Clicked="DecrementReps" />
+                            <Label Grid.Column="1" x:Name="labelReps" FontSize="12" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                            <Button Grid.Column="2" WidthRequest="50" HeightRequest="50" BackgroundColor="SaddleBrown" FontSize="18" TextColor="White" Text="+" Clicked="IncrementReps" />
                         </Grid>
 
-                        <Image Source="cornerbl.png" Grid.Row="12" Grid.Column="0" />
-                        <BoxView BackgroundColor="White" Grid.Row="12" Grid.Column="1">
+                        <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="12" Grid.Column="0" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="12" Grid.Column="1">
                             <BoxView.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeBeatValue" NumberOfTapsRequired="1" />
                             </BoxView.GestureRecognizers>
                         </BoxView>
-                        <Image Source="cornerbr.png" Grid.Row="12" Grid.Column="2" />
+                        <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="12" Grid.Column="2" />
 
                     </Grid>
-                    <Label FontSize="20" TextColor="SaddleBrown" Text="Edit Section" />
+                    <Label FontSize="20" TextColor="Wheat" Text="Edit Section" />
                     <Grid ColumnSpacing="0" RowSpacing="0">
 
                         <Grid.ColumnDefinitions>
@@ -140,17 +140,17 @@
                             <RowDefinition Height="20" />
                         </Grid.RowDefinitions>
 
-                        <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                        <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
-                        <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                        <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                        <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                        <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" />
                         <local:SectionLayout BackgroundColor="White" Grid.Row="1" Grid.Column="1" x:Name="layoutSectionDisplay" />
-                        <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="7" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="7" />
 
-                        <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
                         
-                        <Grid Grid.Row="3" Grid.Column="1" ColumnSpacing="0" RowSpacing="0" BackgroundColor="White">
+                        <Grid Grid.Row="3" Grid.Column="1" ColumnSpacing="0" RowSpacing="0">
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20" />
@@ -168,53 +168,48 @@
                                 <RowDefinition Height="20" />
                             </Grid.RowDefinitions>
 
-                            <Image Source="bcornerul.png" Grid.Row="0" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="6" />
-                            <Image Source="bcornerur.png" Grid.Row="0" Grid.Column="7" />
+                            <Image Opacity="0.75" Source="innerul.png" Grid.Row="0" Grid.Column="0" />
+                            <Image Opacity="0.75" Source="innerur.png" Grid.Row="0" Grid.Column="7" />
 
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="7" />
-
-                            <Image Grid.Row="1" Grid.Column="1" Source="semibreve.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="1" Source="white_semibreve.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertSemibreve" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="2" Source="minim.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="2" Source="white_minim.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertMinim" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="3" Source="crotchet.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="3" Source="white_crotchet.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertCrotchet" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="4" Source="quaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="4" Source="white_quaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertQuaver" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="5" Source="semiquaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="5" Source="white_semiquaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertSemiquaver" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="6" Source="demisemiquaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="6" Source="white_demisemiquaver.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertDemisemiquaver" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
 
-                            <Image Source="bcornerbl.png" Grid.Row="2" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6" />
-                            <Image Source="bcornerbr.png" Grid.Row="2" Grid.Column="7" />
+                            <Image Opacity="0.75" Source="innerbl.png" Grid.Row="2" Grid.Column="0" />
+                            <Image Opacity="0.75" Source="innerbr.png" Grid.Row="2" Grid.Column="7" />
 
                         </Grid>
 
-                        <BoxView BackgroundColor="White" Grid.Row="4" Grid.Column="1" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="4" Grid.Column="1" />
                         
-                        <Grid Grid.Row="5" Grid.Column="1" ColumnSpacing="0" RowSpacing="0" BackgroundColor="White">
+                        <Grid Grid.Row="5" Grid.Column="1" ColumnSpacing="0" RowSpacing="0">
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20" />
@@ -232,53 +227,48 @@
                                 <RowDefinition Height="20" />
                             </Grid.RowDefinitions>
 
-                            <Image Source="bcornerul.png" Grid.Row="0" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="6" />
-                            <Image Source="bcornerur.png" Grid.Row="0" Grid.Column="7" />
+                            <Image Opacity="0.75" Source="innerul.png" Grid.Row="0" Grid.Column="0" />
+                            <Image Opacity="0.75" Source="innerur.png" Grid.Row="0" Grid.Column="7" />
 
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="7" />
-
-                            <Image Grid.Row="1" Grid.Column="1" Source="semibreverest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="1" Source="white_semibreverest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertSemibreveRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="2" Source="minimrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="2" Source="white_minimrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertMinimRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="3" Source="crotchetrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="3" Source="white_crotchetrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertCrotchetRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="4" Source="quaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="4" Source="white_quaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertQuaverRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="5" Source="semiquaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="5" Source="white_semiquaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertSemiquaverRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Grid.Row="1" Grid.Column="6" Source="demisemiquaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                            <Image Grid.Row="1" Grid.Column="6" Source="white_demisemiquaverrest.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="InsertDemisemiquaverRest" NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
 
-                            <Image Source="bcornerbl.png" Grid.Row="2" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6" />
-                            <Image Source="bcornerbr.png" Grid.Row="2" Grid.Column="7" />
+                            <Image Opacity="0.75" Source="innerbl.png" Grid.Row="2" Grid.Column="0" />
+                            <Image Opacity="0.75" Source="innerbr.png" Grid.Row="2" Grid.Column="7" />
 
                         </Grid>
 
-                        <BoxView BackgroundColor="White" Grid.Row="6" Grid.Column="1" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="6" Grid.Column="1" />
                         
-                        <Grid Grid.Row="7" Grid.Column="1" ColumnSpacing="0" RowSpacing="0" BackgroundColor="White">
+                        <Grid Grid.Row="7" Grid.Column="1" ColumnSpacing="0" RowSpacing="0">
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20" />
@@ -294,14 +284,10 @@
                                 <RowDefinition Height="20" />
                             </Grid.RowDefinitions>
 
-                            <Image Source="bcornerul.png" Grid.Row="0" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" />
-                            <Image Source="bcornerur.png" Grid.Row="0" Grid.Column="5" />
+                            <Image Opacity="0.75" Source="innerul.png" Grid.Row="0" Grid.Column="0" />
+                            <Image Opacity="0.75" Source="innerur.png" Grid.Row="0" Grid.Column="5" />
 
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="1" Grid.Column="5" />
-
-                            <Grid Grid.Column="1" Grid.Row="1" BackgroundColor="SaddleBrown">
+                            <Grid Grid.Column="1" Grid.Row="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
@@ -309,10 +295,10 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EmbellishTie" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
-                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                                <Label FontSize="12" TextColor="White" Text="TIE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                                <Image Grid.Row="0" Source="white_tie.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                                <Label FontSize="12" TextColor="Wheat" Text="TIE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
-                            <Grid Grid.Column="2" Grid.Row="1" BackgroundColor="SaddleBrown">
+                            <Grid Grid.Column="2" Grid.Row="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
@@ -320,10 +306,10 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EmbellishTuplet" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
-                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                                <Label FontSize="12" TextColor="White" Text="TUPLET" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                                <Image Grid.Row="0" Source="white_tuplet.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                                <Label FontSize="12" TextColor="Wheat" Text="TUPLET" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
-                            <Grid Grid.Column="3" Grid.Row="1" BackgroundColor="SaddleBrown">
+                            <Grid Grid.Column="3" Grid.Row="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
@@ -331,10 +317,10 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EmbellishDot" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
-                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                                <Label FontSize="12" TextColor="White" Text="DOT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                                <Image Grid.Row="0" Source="white_dot.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                                <Label FontSize="12" TextColor="Wheat" Text="DOT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
-                            <Grid Grid.Column="4" Grid.Row="1" BackgroundColor="SaddleBrown">
+                            <Grid Grid.Column="4" Grid.Row="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
@@ -342,19 +328,18 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EmbellishErase" NumberOfTapsRequired="1" />
                                 </Grid.GestureRecognizers>
-                                <Image Grid.Row="0" Source="stock.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                                <Label FontSize="12" TextColor="White" Text="ERASE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                                <Image Grid.Row="0" Source="white_cross.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+                                <Label FontSize="12" TextColor="Wheat" Text="ERASE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
                             </Grid>
 
-                            <Image Source="bcornerbl.png" Grid.Row="2" Grid.Column="0" />
-                            <BoxView BackgroundColor="SaddleBrown" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" />
-                            <Image Source="bcornerbr.png" Grid.Row="2" Grid.Column="5" />
+                            <Image Opacity="0.75" Source="innerbl.png" Grid.Row="2" Grid.Column="0" />
+                            <Image Opacity="0.75" Source="innerbr.png" Grid.Row="2" Grid.Column="5" />
 
                         </Grid>
-                        
-                        <Image Source="cornerbl.png" Grid.Row="8" Grid.Column="0" />
-                        <BoxView BackgroundColor="White" Grid.Row="8" Grid.Column="1" />
-                        <Image Source="cornerbr.png" Grid.Row="8" Grid.Column="2" />
+
+                        <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="8" Grid.Column="0" />
+                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="8" Grid.Column="1" />
+                        <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="8" Grid.Column="2" />
 
                     </Grid>
                 </StackLayout>

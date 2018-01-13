@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MetronomeAmplified.Classes;assembly=MetronomeAmplified"
-             x:Class="MetronomeAmplified.MainPage">
+             x:Class="MetronomeAmplified.MainPage"
+             BackgroundImage="wood_bg_texture.jpg">
 
-    <RelativeLayout BackgroundColor="Wheat">
+    <RelativeLayout>
         
         <Grid ColumnSpacing="0"
               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
@@ -17,7 +18,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" BackgroundColor="SaddleBrown">
+            <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -26,10 +27,10 @@
                     <TapGestureRecognizer Tapped="LoadPageTone" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
                 <Image Grid.Row="0" Source="tone.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                <Label FontSize="16" TextColor="White" Text="TONE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                <Label FontSize="16" TextColor="Wheat" Text="TONE" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
-            <Grid Grid.Column="1" BackgroundColor="SaddleBrown">
+            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -38,10 +39,10 @@
                     <TapGestureRecognizer Tapped="LoadPageSong" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
                 <Image Grid.Row="0" Source="song.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                <Label FontSize="16" TextColor="White" Text="SONG" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                <Label FontSize="16" TextColor="Wheat" Text="SONG" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
-            <Grid Grid.Column="2" BackgroundColor="SaddleBrown">
+            <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -50,10 +51,10 @@
                     <TapGestureRecognizer Tapped="LoadPageHelp" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
                 <Image Grid.Row="0" Source="help.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                <Label FontSize="16" TextColor="White" Text="HELP" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                <Label FontSize="16" TextColor="Wheat" Text="HELP" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
-            <Grid Grid.Column="3" BackgroundColor="SaddleBrown">
+            <Grid Grid.Column="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -62,7 +63,7 @@
                     <TapGestureRecognizer Tapped="LoadPageSettings" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
                 <Image Grid.Row="0" Source="settings.png" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
-                <Label FontSize="16" TextColor="White" Text="SETTINGS" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                <Label FontSize="16" TextColor="Wheat" Text="SETTINGS" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
         </Grid>
@@ -103,32 +104,32 @@
                 <RowDefinition Height="10" />
             </Grid.RowDefinitions>
 
-            <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-            <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7" />
-            <Image Source="cornerur.png" Grid.Row="0" Grid.Column="8" />
+            <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+            <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7" />
+            <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="8" />
 
-            <BoxView Grid.Row="1" Grid.Column="0" Grid.RowSpan="9" BackgroundColor="White" />
-            <BoxView Grid.Row="1" Grid.Column="8" Grid.RowSpan="9" BackgroundColor="White" />
+            <BoxView Grid.Row="1" Grid.Column="0" Grid.RowSpan="9" Opacity="0.75" BackgroundColor="White" />
+            <BoxView Grid.Row="1" Grid.Column="8" Grid.RowSpan="9" Opacity="0.75" BackgroundColor="White" />
 
-            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" BackgroundColor="White"
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Opacity="0.75" BackgroundColor="White"
                            FontSize="48" Text="" HorizontalTextAlignment="Center" x:Name="displayTempo">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ResetGain" NumberOfTapsRequired="1" />
                 </Label.GestureRecognizers>
             </Label>
 
-            <BoxView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" BackgroundColor="White" />
-            <Label Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" FontSize="24" BackgroundColor="White" Text="BPM" HorizontalTextAlignment="Center" />
-            <Button Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" BackgroundColor="SaddleBrown" FontSize="12" Text="TAP" TextColor="White" Clicked="PressTap" />
+            <BoxView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Opacity="0.75" BackgroundColor="White" />
+            <Label Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Opacity="0.75" FontSize="24" BackgroundColor="White" Text="BPM" HorizontalTextAlignment="Center" />
+            <Button Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Opacity="0.75" BackgroundColor="SaddleBrown" FontSize="12" Text="TAP" TextColor="White" Clicked="PressTap" />
 
-            <StackLayout Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" BackgroundColor="White">
+            <StackLayout Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" Opacity="0.75" BackgroundColor="White">
                 <Slider x:Name="sliderTempo" Minimum="0" Maximum="100" Value="25" ValueChanged="TempoSliderChanged" />
             </StackLayout>
 
-            <BoxView Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="7" BackgroundColor="White" />
-            
-            <Label Grid.Row="5" Grid.Column="1" FontSize="12" BackgroundColor="White" Text="SECTION" HorizontalTextAlignment="Start" />
-            <AbsoluteLayout Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="6" BackgroundColor="White" Padding="0,5"
+            <BoxView Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="7" Opacity="0.75" BackgroundColor="White" />
+
+            <Label Grid.Row="5" Grid.Column="1" FontSize="12" Opacity="0.75" BackgroundColor="White" Text="SECTION" HorizontalTextAlignment="Start" />
+            <AbsoluteLayout Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="6" Opacity="0.75" BackgroundColor="White" Padding="0,5"
                                     HeightRequest="20" x:Name="layoutProgressSection">
                 <BoxView BackgroundColor="DarkBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,1.0,1.0"
                                  x:Name="bgSection" />
@@ -136,8 +137,8 @@
                                  x:Name="boxProgressSection" />
             </AbsoluteLayout>
 
-            <Label Grid.Row="6" Grid.Column="1" FontSize="12" BackgroundColor="White" Text="SONG" HorizontalTextAlignment="Start" />
-            <AbsoluteLayout Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="6" BackgroundColor="White" Padding="0,5"
+            <Label Grid.Row="6" Grid.Column="1" FontSize="12" Opacity="0.75" BackgroundColor="White" Text="SONG" HorizontalTextAlignment="Start" />
+            <AbsoluteLayout Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="6" Opacity="0.75" BackgroundColor="White" Padding="0,5"
                                     HeightRequest="20" x:Name="layoutProgressSong">
                 <BoxView BackgroundColor="DarkBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,1.0,1.0"
                                  x:Name="bgSong" />
@@ -145,8 +146,8 @@
                                  x:Name="boxProgressSong" />
             </AbsoluteLayout>
 
-            <Label Grid.Row="7" Grid.Column="1" FontSize="12" BackgroundColor="White" Text="SESSION" HorizontalTextAlignment="Start" />
-            <AbsoluteLayout Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="6" BackgroundColor="White" Padding="0,5"
+            <Label Grid.Row="7" Grid.Column="1" FontSize="12" Opacity="0.75" BackgroundColor="White" Text="SESSION" HorizontalTextAlignment="Start" />
+            <AbsoluteLayout Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="6" Opacity="0.75" BackgroundColor="White" Padding="0,5"
                                     HeightRequest="20" x:Name="layoutProgressSession">
                 <BoxView BackgroundColor="DarkBlue" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.0,0.0,1.0,1.0"
                                  x:Name="bgSession" />
@@ -154,15 +155,15 @@
                                  x:Name="boxProgressSession" />
             </AbsoluteLayout>
 
-            <BoxView BackgroundColor="White" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Image Source="innerul.png" Grid.Row="8" Grid.Column="3" />
-            <Image Source="innerur.png" Grid.Row="8" Grid.Column="5" />
-            <BoxView BackgroundColor="White" Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2" />
+            <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Image Opacity="0.75" Source="innerul.png" Grid.Row="8" Grid.Column="3" />
+            <Image Opacity="0.75" Source="innerur.png" Grid.Row="8" Grid.Column="5" />
+            <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2" />
 
-            <BoxView BackgroundColor="White" Grid.Row="9" Grid.Column="2" />
-            <BoxView BackgroundColor="White" Grid.Row="9" Grid.Column="6" />
+            <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="9" Grid.Column="2" />
+            <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="9" Grid.Column="6" />
 
-            <Grid Grid.Row="9" Grid.Column="1" BackgroundColor="SaddleBrown">
+            <Grid Grid.Row="9" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -171,7 +172,7 @@
                     <TapGestureRecognizer Tapped="PressTimer" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
                 <Image Grid.Row="0" Source="timer.png" Aspect="AspectFit" VerticalOptions="End" HorizontalOptions="Center" />
-                <Label FontSize="16" TextColor="White" Text="TIMER" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                <Label FontSize="16" TextColor="Wheat" Text="TIMER" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
             <Grid Grid.Row="9" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="3" HorizontalOptions="Center">
@@ -206,7 +207,7 @@
                 </Image>
             </Grid>
 
-            <Grid Grid.Row="9" Grid.Column="7" BackgroundColor="SaddleBrown">
+            <Grid Grid.Row="9" Grid.Column="7">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -215,15 +216,15 @@
                     <TapGestureRecognizer Tapped="PressLift" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
                 <Image Grid.Row="0" Source="lift.png" Aspect="AspectFit" VerticalOptions="End" HorizontalOptions="Center" />
-                <Label FontSize="16" TextColor="White" Text="LIFT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+                <Label FontSize="16" TextColor="Wheat" Text="LIFT" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
             </Grid>
 
-            <Image Source="cornerbl.png" Grid.Row="10" Grid.Column="0" />
-            <BoxView BackgroundColor="White" Grid.Row="10" Grid.Column="1" />
-            <Image Source="cornerbr.png" Grid.Row="10" Grid.Column="2" />
-            <Image Source="cornerbl.png" Grid.Row="10" Grid.Column="6" />
-            <BoxView BackgroundColor="White" Grid.Row="10" Grid.Column="7" />
-            <Image Source="cornerbr.png" Grid.Row="10" Grid.Column="8" />
+            <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="10" Grid.Column="0" />
+            <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="10" Grid.Column="1" />
+            <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="10" Grid.Column="2" />
+            <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="10" Grid.Column="6" />
+            <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="10" Grid.Column="7" />
+            <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="10" Grid.Column="8" />
 
         </Grid>
         

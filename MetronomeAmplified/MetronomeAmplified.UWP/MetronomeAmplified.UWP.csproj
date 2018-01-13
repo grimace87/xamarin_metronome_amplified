@@ -115,10 +115,6 @@
     <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
-    <Content Include="bcornerbl.png" />
-    <Content Include="bcornerbr.png" />
-    <Content Include="bcornerul.png" />
-    <Content Include="bcornerur.png" />
     <Content Include="blanknote.png" />
     <Content Include="cornerbl.png" />
     <Content Include="cornerbr.png" />
@@ -143,6 +139,8 @@
     <Content Include="ffbutton.png" />
     <Content Include="hat.wav" />
     <Content Include="help.png" />
+    <Content Include="innerbl.png" />
+    <Content Include="innerbr.png" />
     <Content Include="innerul.png" />
     <Content Include="innerur.png" />
     <Content Include="kick.wav" />
@@ -200,10 +198,28 @@
     <Content Include="tom.wav" />
     <Content Include="tone.png" />
     <Content Include="tuplet.png" />
+    <Content Include="white_cross.png" />
+    <Content Include="white_crotchet.png" />
+    <Content Include="white_crotchetrest.png" />
+    <Content Include="white_demisemiquaver.png" />
+    <Content Include="white_demisemiquaverrest.png" />
+    <Content Include="white_dot.png" />
+    <Content Include="white_minim.png" />
+    <Content Include="white_minimrest.png" />
+    <Content Include="white_quaver.png" />
+    <Content Include="white_quaverrest.png" />
+    <Content Include="white_semibreve.png" />
+    <Content Include="white_semibreverest.png" />
+    <Content Include="white_semiquaver.png" />
+    <Content Include="white_semiquaverrest.png" />
+    <Content Include="white_tie.png" />
+    <Content Include="white_tuplet.png" />
+    <Content Include="wood_bg_texture.jpg" />
     <Content Include="wood_gentle.wav" />
     <Content Include="wood_high.wav" />
     <Content Include="wood_low.wav" />
     <Content Include="wood_mid.wav" />
+    <Content Include="wood_texture_btn.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
