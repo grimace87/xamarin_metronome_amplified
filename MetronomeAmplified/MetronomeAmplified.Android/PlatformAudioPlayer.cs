@@ -47,7 +47,7 @@ namespace MetronomeAmplified.Droid
             PlaybackStateCompat.Builder playbackState = new PlaybackStateCompat.Builder().SetActions(PlaybackStateCompat.ActionPlay | PlaybackStateCompat.ActionPlayPause);
             NotificationCompat.Builder noti = new NotificationCompat.Builder(this.context);
             noti.SetOngoing(true);
-            noti.SetSmallIcon(Resource.Drawable.TerribleMetronomeImage);
+            noti.SetSmallIcon(Resource.Drawable.icon);
             noti.SetContentTitle("Metronome Amplified");
             noti.SetContentText("Control");
 

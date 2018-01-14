@@ -2892,13 +2892,13 @@ namespace MetronomeAmplified.Droid
 			public const int song = 2130837812;
 			
 			// aapt resource value: 0x7f020135
-			public const int stock = 2130837813;
+			public const int splash = 2130837813;
 			
 			// aapt resource value: 0x7f020136
-			public const int stopbutton = 2130837814;
+			public const int stock = 2130837814;
 			
 			// aapt resource value: 0x7f020137
-			public const int TerribleMetronomeImage = 2130837815;
+			public const int stopbutton = 2130837815;
 			
 			// aapt resource value: 0x7f020138
 			public const int tie = 2130837816;
