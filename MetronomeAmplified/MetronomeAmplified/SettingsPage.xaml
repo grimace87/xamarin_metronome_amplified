@@ -36,42 +36,42 @@
                             <RowDefinition Height="20" />
                         </Grid.RowDefinitions>
 
-                        <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1">
+                        <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                        <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1">
                             <BoxView.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ToggleCues" NumberOfTapsRequired="1" />
                             </BoxView.GestureRecognizers>
                         </BoxView>
-                        <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                        <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" />
-                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" />
+                        <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" />
+                        <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" />
 
-                        <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                        <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ToggleCues" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
-                            <Label FontSize="12" Text="Flashing cues" HorizontalOptions="Start" />
-                            <Label x:Name="labelCuesToggle" FontSize="12" Text="On" HorizontalOptions="EndAndExpand" />
+                            <Label FontSize="14" Text="Flashing cues" HorizontalOptions="Start" />
+                            <Label x:Name="labelCuesToggle" FontSize="14" Text="On" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
-                        <BoxView Margin="0,10" Opacity="0.75" BackgroundColor="Wheat" Grid.Row="2" Grid.Column="1" />
+                        <BoxView BackgroundColor="Wheat" Grid.Row="2" Grid.Column="1" />
 
-                        <StackLayout Padding="10,10,10,0" Opacity="0.75" BackgroundColor="White" Orientation="Horizontal" x:Name="layoutCueColor" Grid.Row="3" Grid.Column="1">
+                        <StackLayout Padding="10,10,10,0" BackgroundColor="White" Orientation="Horizontal" x:Name="layoutCueColor" Grid.Row="3" Grid.Column="1">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeCueColor" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>
-                            <Label FontSize="12" Text="Flash color" HorizontalOptions="Start" />
-                            <Label x:Name="labelCueColor" FontSize="12" Text="Cyan" HorizontalOptions="EndAndExpand" />
+                            <Label FontSize="14" Text="Flash color" HorizontalOptions="Start" />
+                            <Label x:Name="labelCueColor" FontSize="14" Text="Cyan" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
 
-                        <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="4" Grid.Column="0" />
-                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="4" Grid.Column="1">
+                        <Image Source="cornerbl.png" Grid.Row="4" Grid.Column="0" />
+                        <BoxView BackgroundColor="White" Grid.Row="4" Grid.Column="1">
                             <BoxView.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChangeCueColor" NumberOfTapsRequired="1" />
                             </BoxView.GestureRecognizers>
                         </BoxView>
-                        <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="4" Grid.Column="2" />
+                        <Image Source="cornerbr.png" Grid.Row="4" Grid.Column="2" />
 
                     </Grid>
                     <Label FontSize="20" TextColor="Wheat" Text="One-Tap Tempo Lift" />
@@ -93,41 +93,47 @@
                             <RowDefinition Height="20" />
                         </Grid.RowDefinitions>
 
-                        <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
-                        <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                        <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                        <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                        <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="5" />
-                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" />
+                        <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="5" />
+                        <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" />
 
-                        <StackLayout Orientation="Horizontal" Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="1">
-                            <Label FontSize="12" Text="Increase frequency" HorizontalOptions="Start" />
-                            <Picker x:Name="pickLiftType" ItemsSource="{Binding GetLiftTypeStrings}" SelectedIndexChanged="AdjustPicker" HorizontalOptions="EndAndExpand" />
+                        <StackLayout Orientation="Horizontal" Padding="10,0,10,10" BackgroundColor="White" Grid.Row="1" Grid.Column="1">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OpenLiftTypePicker" NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                            <Label FontSize="14" Text="Increase frequency" HorizontalOptions="Start" />
+                            <Picker x:Name="pickLiftType" ItemsSource="{Binding GetLiftTypeStrings}" SelectedIndexChanged="AdjustPicker"
+                                    IsVisible="False" />
+                            <Label FontSize="14" HorizontalOptions="EndAndExpand"
+                                   BindingContext="{x:Reference Name=pickLiftType}" Text="{Binding Path=SelectedItem}" />
                         </StackLayout>
 
-                        <BoxView Margin="0,10" Opacity="0.75" BackgroundColor="Wheat" Grid.Row="2" Grid.Column="1" />
+                        <BoxView BackgroundColor="Wheat" Grid.Row="2" Grid.Column="1" />
 
-                        <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Vertical" Grid.Row="3" Grid.Column="1">
+                        <StackLayout Padding="10,10,10,5" BackgroundColor="White" Orientation="Vertical" Grid.Row="3" Grid.Column="1">
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="12" Text="BPM gain" HorizontalOptions="Start" />
-                                <Label x:Name="labelBPMGain" FontSize="12" HorizontalOptions="EndAndExpand" />
+                                <Label FontSize="14" Text="BPM gain" HorizontalOptions="Start" />
+                                <Label x:Name="labelBPMGain" FontSize="14" HorizontalOptions="EndAndExpand" />
                             </StackLayout>
                             <Slider x:Name="sliderBPMGain" Minimum="0" Maximum="100" Value="20" />
                         </StackLayout>
 
-                        <BoxView Margin="0,10" Opacity="0.75" BackgroundColor="Wheat" Grid.Row="4" Grid.Column="1" />
+                        <BoxView BackgroundColor="Wheat" Grid.Row="4" Grid.Column="1" />
 
-                        <StackLayout Padding="10,10,10,0" Opacity="0.75" BackgroundColor="White" Orientation="Vertical" Grid.Row="5" Grid.Column="1" x:Name="layoutDuration">
+                        <StackLayout Padding="10,10,10,0" BackgroundColor="White" Orientation="Vertical" Grid.Row="5" Grid.Column="1" x:Name="layoutDuration">
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="12" Text="Duration" HorizontalOptions="Start" />
-                                <Label x:Name="labelDuration" FontSize="12" HorizontalOptions="EndAndExpand" />
+                                <Label FontSize="14" Text="Duration" HorizontalOptions="Start" />
+                                <Label x:Name="labelDuration" FontSize="14" HorizontalOptions="EndAndExpand" />
                             </StackLayout>
                             <Slider x:Name="sliderDuration" Minimum="0" Maximum="100" Value="30" />
                         </StackLayout>
 
-                        <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="6" Grid.Column="0" />
-                        <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="6" Grid.Column="1" />
-                        <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="6" Grid.Column="2" />
+                        <Image Source="cornerbl.png" Grid.Row="6" Grid.Column="0" />
+                        <BoxView BackgroundColor="White" Grid.Row="6" Grid.Column="1" />
+                        <Image Source="cornerbr.png" Grid.Row="6" Grid.Column="2" />
 
                     </Grid>
                 </StackLayout>
@@ -139,9 +145,9 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Text="Save Changes" FontSize="12" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveAndReturn" />
-                <Button Grid.Column="1" Text="Defaults" FontSize="12" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SetDefaults" />
-                <Button Grid.Column="2" Text="Cancel" FontSize="12" BackgroundColor="SaddleBrown" TextColor="White" Clicked="CancelAndReturn" />
+                <Button Grid.Column="0" Text="Save" FontSize="14" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveAndReturn" />
+                <Button Grid.Column="1" Text="Defaults" FontSize="14" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SetDefaults" />
+                <Button Grid.Column="2" Text="Cancel" FontSize="14" BackgroundColor="SaddleBrown" TextColor="White" Clicked="CancelAndReturn" />
             </Grid>
             
         </Grid>

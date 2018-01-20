@@ -35,32 +35,32 @@
                         <RowDefinition Height="20" />
                     </Grid.RowDefinitions>
 
-                    <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1">
+                    <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
-                    <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                    <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
-                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
 
-                    <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                    <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
                         </StackLayout.GestureRecognizers>
-                        <Label FontSize="12" TextColor="Black" Text="Title" HorizontalOptions="Start" />
-                        <Label x:Name="labelSongTitle" FontSize="12" TextColor="Black" Text="{Binding SongName}" HorizontalOptions="EndAndExpand" />
+                        <Label FontSize="14" TextColor="Black" Text="Title" HorizontalOptions="Start" />
+                        <Label x:Name="labelSongTitle" FontSize="14" TextColor="Black" Text="{Binding SongName}" HorizontalOptions="EndAndExpand" />
                     </StackLayout>
 
-                    <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
-                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="2" Grid.Column="1">
+                    <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="LoadNameUpdatePage" NumberOfTapsRequired="1" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
-                    <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+                    <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
 
                 </Grid>
             </StackLayout>
@@ -75,10 +75,10 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="✘" Clicked="SectionDelete" />
-                <Button Grid.Column="1" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="Copy" Clicked="SectionCopy" />
-                <Button Grid.Column="2" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="Edit" Clicked="SectionEdit" />
-                <Button Grid.Column="3" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Text="+" Clicked="SectionNew" />
+                <Button Grid.Column="0" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Text="✘" Clicked="SectionDelete" />
+                <Button Grid.Column="1" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Text="Copy" Clicked="SectionCopy" />
+                <Button Grid.Column="2" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Text="Edit" Clicked="SectionEdit" />
+                <Button Grid.Column="3" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Text="+" Clicked="SectionNew" />
 
             </Grid>
 
@@ -96,14 +96,14 @@
                     <RowDefinition Height="20" />
                 </Grid.RowDefinitions>
 
-                <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
-                <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
-                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
 
-                <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <ListView ItemsSource="{Binding SongList}" x:Name="listSections">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -126,9 +126,9 @@
                     </ListView>
                 </StackLayout>
 
-                <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
-                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
-                <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+                <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
 
             </Grid>
 
@@ -142,10 +142,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Button Grid.Column="0" Text="Save Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Clicked="SaveSong" />
-                <Button Grid.Column="1" Text="Load Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Clicked="LoadSong" />
-                <Button Grid.Column="2" Text="New Song" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Clicked="NewSong" />
-                <Button Grid.Column="3" Text="Back" BackgroundColor="SaddleBrown" TextColor="White" FontSize="12" Clicked="Return" />
+                <Button Grid.Column="0" Text="Save" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Clicked="SaveSong" />
+                <Button Grid.Column="1" Text="Load" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Clicked="LoadSong" />
+                <Button Grid.Column="2" Text="New" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Clicked="NewSong" />
+                <Button Grid.Column="3" Text="Back" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Clicked="Return" />
             </Grid>
 
         </Grid>

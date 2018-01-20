@@ -159,6 +159,11 @@ namespace MetronomeAmplified
             }
         }
 
+        public void OpenLiftTypePicker()
+        {
+            pickLiftType.Focus();
+        }
+
         private Color GetColour(string name)
         {
             switch(name)

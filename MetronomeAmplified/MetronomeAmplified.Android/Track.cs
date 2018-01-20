@@ -75,6 +75,7 @@ namespace MetronomeAmplified.Droid
             // Store data in this object
             TrackDataLength = dataLength;
             TrackData = data;
+
         }
 
         public static unsafe Track OpenTrack(Context context, int resID)

@@ -32,23 +32,23 @@
                         <RowDefinition Height="20" />
                     </Grid.RowDefinitions>
 
-                    <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
-                    <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                    <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                    <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
-                    <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                    <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                         <StackLayout Orientation="Horizontal">
-                            <Label FontSize="12" Text="Session length" HorizontalOptions="Start" />
-                            <Label x:Name="labelSessionTime" FontSize="12" HorizontalOptions="EndAndExpand" />
+                            <Label FontSize="14" Text="Session length" HorizontalOptions="Start" />
+                            <Label x:Name="labelSessionTime" FontSize="14" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
                         <Slider x:Name="sliderSessionTime" Minimum="0" Maximum="100" Value="25" />
                     </StackLayout>
-                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
 
-                    <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
-                    <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
-                    <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+                    <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                    <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
 
                 </Grid>
 
@@ -57,8 +57,8 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" FontSize="12" Text="Start Timer" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveAndStart" />
-                    <Button Grid.Column="1" FontSize="12" Text="Cancel" BackgroundColor="SaddleBrown" TextColor="White" Clicked="CancelAndReturn" />
+                    <Button Grid.Column="0" FontSize="14" Text="Start Timer" BackgroundColor="SaddleBrown" TextColor="White" Clicked="SaveAndStart" />
+                    <Button Grid.Column="1" FontSize="14" Text="Cancel" BackgroundColor="SaddleBrown" TextColor="White" Clicked="CancelAndReturn" />
                 </Grid>
 
             </Grid>

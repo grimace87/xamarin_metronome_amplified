@@ -87,6 +87,14 @@ namespace MetronomeAmplified
             BeatValue = pickBeatValue.SelectedIndex == 0 ? 4 : 8;
             UpdateDisplay();
         }
+        private void OpenBeatsPerMeasurePicker()
+        {
+            pickBeatsPerMeasure.Focus();
+        }
+        private void OpenBeatValuePicker()
+        {
+            pickBeatValue.Focus();
+        }
         private void SaveChanges(object sender, EventArgs e)
         {
             if (WorkingSection.SectionIsValid())

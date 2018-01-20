@@ -335,13 +335,13 @@ namespace MetronomeAmplified.Classes
                 tupletWidth = BlockWidthPerNote * (tupletCount - 1) + NoteWidth;
                 AnchorX = FirstNoteXOffset + BlockWidthPerNote * i;
                 AbsoluteLayout.SetLayoutFlags(img, AbsoluteLayoutFlags.None);
-                AbsoluteLayout.SetLayoutBounds(img, new Rectangle(AnchorX, 0.0, tupletWidth, 0.2 * layoutHeight));
+                AbsoluteLayout.SetLayoutBounds(img, new Rectangle(AnchorX, 0.1 * layoutHeight, tupletWidth, 0.2 * layoutHeight));
                 layout.Children.Add(img);
                 Label label = new Label();
                 label.Text = tupletDisplayNumber.ToString();
                 label.HorizontalTextAlignment = TextAlignment.Center;
                 AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.None);
-                AbsoluteLayout.SetLayoutBounds(label, new Rectangle(AnchorX, 0.0, tupletWidth, 0.2 * layoutHeight));
+                AbsoluteLayout.SetLayoutBounds(label, new Rectangle(AnchorX, 0.05 * layoutHeight, tupletWidth, 0.2 * layoutHeight));
                 layout.Children.Add(label);
                 i += tupletCount - 1;
             }

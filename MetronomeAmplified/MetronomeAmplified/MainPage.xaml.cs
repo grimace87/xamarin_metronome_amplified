@@ -70,11 +70,11 @@ namespace MetronomeAmplified
                 double height = this.Height;
 
                 // Size according to orientation
-                double ctrlSize = width > height ? 0.15 * (this.Height - 40) : 0.25 * (this.Width - 40);
+                double ctrlSize = width > height ? 0.15 * (height - 40) : 0.25 * (width - 40);
                 BottomCtrlRow.Height = ctrlSize;
                 CtrlColumn1.Width = ctrlSize;
                 CtrlColumn2.Width = ctrlSize;
-                ctrlSize = width > height ? 0.15 * (this.Height + 20) : 0.25 * (this.Width + 20);
+                ctrlSize = width > height ? 0.15 * (height + 20) : 0.25 * (width + 20);
                 PlaybackCtrlPlayStop.WidthRequest = ctrlSize * 0.5;
                 PlaybackCtrlPlayStop.HeightRequest = ctrlSize * 0.5;
                 PlaybackCtrlRewind.WidthRequest = ctrlSize * 0.3;
@@ -84,12 +84,11 @@ namespace MetronomeAmplified
                 PlaybackCtrlPause.WidthRequest = ctrlSize * 0.3;
                 PlaybackCtrlPause.HeightRequest = ctrlSize * 0.3;
 
-                // Populate the song display
-                UpdateDisplay();
-
-
             };
             
+            // Populate the song display when the layout is measured
+            layoutSectionDisplay.MeasurePerformed += UpdateDisplay;
+                
             LastProgressSection = false;
             LastProgressSong = false;
             LastProgressSession = false;

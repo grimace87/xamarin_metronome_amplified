@@ -61,8 +61,8 @@ namespace MetronomeAmplified.Droid
             PendingIntent stopPending = PendingIntent.GetService(this.context, NOTIFICATION_ID, stopIntent, PendingIntentFlags.CancelCurrent);
             noti.AddAction(Resource.Drawable.stopbutton, "Stop", stopPending);
 
-            // Set the amount of visible detail for show on the lock screen
-            noti.SetVisibility(NotificationCompat.VisibilityPrivate);
+            // Set the amount of visible detail for show on the lock screen (nothing need be private here)
+            noti.SetVisibility(NotificationCompat.VisibilityPublic);
 
             // Build the notification
             notify = noti.Build();
@@ -134,8 +134,15 @@ namespace MetronomeAmplified.Droid
                     continue;
                 if (this.tracks[i] == null)
                     this.tracks[i] = Track.OpenTrack(context, fileNo);
-                else if (this.tracks[i].PlayState == PlayState.Playing)
-                    this.tracks[i].LoadNewAudioFile(context, fileNo);
+                else
+                {
+                    if (this.tracks[i].PlayState == PlayState.Playing)
+                        this.tracks[i].Stop();
+                    this.tracks[i].Release();
+                    this.tracks[i].Dispose();
+                    this.tracks[i] = Track.OpenTrack(this.context, fileNo);
+                }
+                //this.tracks[i].LoadNewAudioFile(context, fileNo);
                 await this.tracks[i].WriteAsync(this.tracks[i].TrackData, 0, this.tracks[i].TrackDataLength);
             }
             

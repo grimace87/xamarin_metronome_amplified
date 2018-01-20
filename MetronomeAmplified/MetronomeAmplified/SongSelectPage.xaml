@@ -22,13 +22,13 @@
                     <RowDefinition Height="20" />
                 </Grid.RowDefinitions>
 
-                <Image Opacity="0.75" Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
-                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
-                <Image Opacity="0.75" Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
 
-                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
 
-                <StackLayout Padding="10,0,10,10" Opacity="0.75" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                <StackLayout Padding="10,0,10,10" BackgroundColor="White" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <ListView BackgroundColor="White" ItemsSource="{Binding SongFiles}" x:Name="listSongs">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -38,11 +38,11 @@
                     </ListView>
                 </StackLayout>
 
-                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+                <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
 
-                <Image Opacity="0.75" Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
-                <BoxView Opacity="0.75" BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
-                <Image Opacity="0.75" Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+                <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
 
             </Grid>
 
@@ -52,9 +52,12 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" FontSize="12" Text="Load Song" BackgroundColor="SaddleBrown" TextColor="White" Clicked="LoadSong" />
-                <Button Grid.Column="1" FontSize="12" Text="Delete Song" BackgroundColor="SaddleBrown" TextColor="White" Clicked="DeleteSong" />
-                <Button Grid.Column="2" FontSize="12" Text="Cancel" BackgroundColor="SaddleBrown" TextColor="White" Clicked="Cancel" />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0" FontSize="14" Text="Load" BackgroundColor="SaddleBrown" TextColor="White" Clicked="LoadSong" />
+                <Button Grid.Column="1" FontSize="14" Text="Delete" BackgroundColor="SaddleBrown" TextColor="White" Clicked="DeleteSong" />
+                <Button Grid.Column="2" FontSize="14" Text="Cancel" BackgroundColor="SaddleBrown" TextColor="White" Clicked="Cancel" />
             </Grid>
             
         </StackLayout>

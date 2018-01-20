@@ -124,6 +124,17 @@ namespace MetronomeAmplified.UWP
             }
             return true;
         }
+        public async Task<bool> DeleteFile(string fileName)
+        {
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            IStorageItem f = await folder.TryGetItemAsync(fileName);
+            if (f != null)
+            {
+                await f.DeleteAsync(StorageDeleteOption.PermanentDelete);
+                return true;
+            }
+            return false;
+        }
         public async Task CloseFile(bool fileWasForWriting)
         {
             if (fileWasForWriting)
