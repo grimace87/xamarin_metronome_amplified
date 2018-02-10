@@ -56,10 +56,6 @@ namespace MetronomeAmplified
             // Initialise the page with its XAML and such
             InitializeComponent();
             BindingContext = this;
-            pickBeatsPerMeasure.SelectedIndex = 3;
-            pickBeatValue.SelectedIndex = 0;
-            pickBeatsPerMeasure.SelectedIndexChanged += ChangeBeatsPerMeasure;
-            pickBeatValue.SelectedIndexChanged += ChangeBeatValue;
             pickBeatsPerMeasure.SelectedIndex = WorkingSection.BeatsPerMeasure - 1;
             pickBeatValue.SelectedIndex = WorkingSection.BeatValue == 4 ? 0 : 1;
             sliderTempo.Value = (WorkingSection.Tempo - 44.0) / 2.56;

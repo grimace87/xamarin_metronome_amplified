@@ -170,17 +170,38 @@ namespace MetronomeAmplified.Classes
             // Find measurements
             layoutWidth = layout.LayoutWidth;
             layoutHeight = layout.LayoutHeight;
-            double extraSpace = IsEditable ? 1.0 : 0.0;
+            int extraSpaces = IsEditable ? 2 : 1;
             NoteWidth = 0.25 * layoutHeight;
-            BlockWidthPerNote = layoutWidth / (numberOfNotes + extraSpace);
+            BlockWidthPerNote = layoutWidth / (numberOfNotes + extraSpaces);
             FirstNoteXOffset = 0.5 * (BlockWidthPerNote - NoteWidth);
 
             // Calculate section metadata if need be
             if (MetadataIsDirty)
                 CalculateNoteMetadata();
 
-            // Place an image of each note, and a box that is coloured according to the accent
+            // Display the time signature beat count
             double AnchorX;
+            AnchorX = FirstNoteXOffset;
+            Label sigCount = new Label();
+            sigCount.FontSize = 20;
+            sigCount.Text = BeatsPerMeasure.ToString();
+            sigCount.HorizontalTextAlignment = TextAlignment.Center;
+            sigCount.VerticalTextAlignment = TextAlignment.Center;
+            AbsoluteLayout.SetLayoutFlags(sigCount, AbsoluteLayoutFlags.None);
+            AbsoluteLayout.SetLayoutBounds(sigCount, new Rectangle(AnchorX, 0.1 * layoutHeight, NoteWidth, 0.4 * layoutHeight));
+            layout.Children.Add(sigCount);
+
+            // Display the time signature beat count
+            Label sigValue = new Label();
+            sigValue.FontSize = 20;
+            sigValue.Text = BeatValue.ToString();
+            sigValue.HorizontalTextAlignment = TextAlignment.Center;
+            sigValue.VerticalTextAlignment = TextAlignment.Center;
+            AbsoluteLayout.SetLayoutFlags(sigValue, AbsoluteLayoutFlags.None);
+            AbsoluteLayout.SetLayoutBounds(sigValue, new Rectangle(AnchorX, 0.5 * layoutHeight, NoteWidth, 0.4 * layoutHeight));
+            layout.Children.Add(sigValue);
+
+            // Place an image of each note, and a box that is coloured according to the accent
             for (int i = 0; i < numberOfNotes; i++)
             {
                 Note note = NoteSequence[i];
@@ -199,7 +220,7 @@ namespace MetronomeAmplified.Classes
                         CommandParameter = i,
                         NumberOfTapsRequired = 1
                     });
-                AnchorX = FirstNoteXOffset + BlockWidthPerNote * i;
+                AnchorX = FirstNoteXOffset + BlockWidthPerNote * (i + 1);
                 AbsoluteLayout.SetLayoutFlags(img, AbsoluteLayoutFlags.None);
                 AbsoluteLayout.SetLayoutBounds(img, new Rectangle(AnchorX, 0.25 * layoutHeight, NoteWidth, 1.5 * NoteWidth));
                 layout.Children.Add(img);
@@ -225,7 +246,7 @@ namespace MetronomeAmplified.Classes
                             CommandParameter = i,
                             NumberOfTapsRequired = 1
                         });
-                    AnchorX = BlockWidthPerNote * i;
+                    AnchorX = BlockWidthPerNote * (i + 1);
                     AbsoluteLayout.SetLayoutFlags(accentBox, AbsoluteLayoutFlags.None);
                     AbsoluteLayout.SetLayoutBounds(accentBox, new Rectangle(AnchorX, 0.8 * layoutHeight, BlockWidthPerNote, 0.2 * layoutHeight));
                     layout.Children.Add(accentBox);
@@ -245,7 +266,7 @@ namespace MetronomeAmplified.Classes
                         CommandParameter = numberOfNotes,
                         NumberOfTapsRequired = 1
                     });
-                AnchorX = BlockWidthPerNote * numberOfNotes;
+                AnchorX = BlockWidthPerNote * (numberOfNotes + 1);
                 AbsoluteLayout.SetLayoutFlags(img, AbsoluteLayoutFlags.None);
                 AbsoluteLayout.SetLayoutBounds(img, new Rectangle(AnchorX, 0.0, BlockWidthPerNote, 0.9 * layoutHeight));
                 layout.Children.Add(img);
@@ -263,7 +284,7 @@ namespace MetronomeAmplified.Classes
                 img.Aspect = Aspect.Fill;
                 img.Source = ImageSource.FromFile(FILE_NAMES[25]);
                 tieWidth = tieCount - 1;
-                AnchorX = FirstNoteXOffset + BlockWidthPerNote * i;
+                AnchorX = FirstNoteXOffset + BlockWidthPerNote * (i + 1);
                 AbsoluteLayout.SetLayoutFlags(img, AbsoluteLayoutFlags.None);
                 AbsoluteLayout.SetLayoutBounds(img, new Rectangle(AnchorX, 0.65 * layoutHeight, BlockWidthPerNote * tieWidth, 0.1 * layoutHeight));
                 layout.Children.Add(img);
@@ -294,7 +315,7 @@ namespace MetronomeAmplified.Classes
                     // Draw the beam
                     BoxView boxy = new BoxView();
                     boxy.BackgroundColor = Color.Black;
-                    AnchorX = BlockWidthPerNote * (i + 0.5);
+                    AnchorX = BlockWidthPerNote * (i + 0.5 + 1);
                     beamWidth = noToBeam == 1 ? NoteWidth * 0.5 : (noToBeam - 1) * BlockWidthPerNote;
                     if (noToBeam == 1)
                     {
@@ -333,7 +354,7 @@ namespace MetronomeAmplified.Classes
                 img.Aspect = Aspect.Fill;
                 img.Source = ImageSource.FromFile(FILE_NAMES[26]);
                 tupletWidth = BlockWidthPerNote * (tupletCount - 1) + NoteWidth;
-                AnchorX = FirstNoteXOffset + BlockWidthPerNote * i;
+                AnchorX = FirstNoteXOffset + BlockWidthPerNote * (i + 1);
                 AbsoluteLayout.SetLayoutFlags(img, AbsoluteLayoutFlags.None);
                 AbsoluteLayout.SetLayoutBounds(img, new Rectangle(AnchorX, 0.1 * layoutHeight, tupletWidth, 0.2 * layoutHeight));
                 layout.Children.Add(img);
@@ -472,16 +493,16 @@ namespace MetronomeAmplified.Classes
             }
         }
 
-        // Get the rectangle to display the box below the current note being played
+        // Get the rectangle to display the box below the current note being played (add 1 to CurrentNote to give space for time signature)
         public Rectangle GetProgressRectangle(int CurrentNote)
         {
-            return new Rectangle(BlockWidthPerNote * CurrentNote, 0.9 * layoutHeight, BlockWidthPerNote, 0.1 * layoutHeight);
+            return new Rectangle(BlockWidthPerNote * (CurrentNote + 1), 0.9 * layoutHeight, BlockWidthPerNote, 0.1 * layoutHeight);
         }
 
         // Get the rectangle to display the cursor over the current note being played
         public Rectangle GetCursorRectangle(int CurrentNote)
         {
-            return new Rectangle(BlockWidthPerNote * CurrentNote, 0.0, BlockWidthPerNote, 0.8 * layoutHeight);
+            return new Rectangle(BlockWidthPerNote * (CurrentNote + 1), 0.0, BlockWidthPerNote, 0.8 * layoutHeight);
         }
 
         // Function to action pressing a particular note, or an accent box, given its Id attribute
