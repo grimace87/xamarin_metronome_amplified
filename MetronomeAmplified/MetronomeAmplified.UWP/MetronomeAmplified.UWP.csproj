@@ -139,6 +139,9 @@
     <Content Include="ffbutton.png" />
     <Content Include="hat.wav" />
     <Content Include="help.png" />
+    <Content Include="help_arrow.png" />
+    <Content Include="help_left.png" />
+    <Content Include="help_right.png" />
     <Content Include="innerbl.png" />
     <Content Include="innerbr.png" />
     <Content Include="innerul.png" />
@@ -191,6 +194,14 @@
     <Content Include="settings.png" />
     <Content Include="snare.wav" />
     <Content Include="song.png" />
+    <Content Include="ss_f1.png" />
+    <Content Include="ss_f2.png" />
+    <Content Include="ss_m1.png" />
+    <Content Include="ss_m2.png" />
+    <Content Include="ss_n1.png" />
+    <Content Include="ss_s1.png" />
+    <Content Include="ss_s2.png" />
+    <Content Include="ss_s3.png" />
     <Content Include="stock.png" />
     <Content Include="stopbutton.png" />
     <Content Include="tie.png" />

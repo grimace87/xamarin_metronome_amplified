@@ -12,6 +12,9 @@ namespace MetronomeAmplified
         private SongPage ParentPage;
         public NameUpdatePage(SongPage page)
         {
+            // Don't show the navigation action bar
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
             ParentPage = page;
         }

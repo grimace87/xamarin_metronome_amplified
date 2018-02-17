@@ -41,8 +41,16 @@ namespace MetronomeAmplified.UWP
         {
             if (hasInit)
                 return;
+
+            // Create the UWP AudioGraph object
             await InitAudioGraphAsync();
+            if (audioGraph == null) return;
+
+            // Create the OutputNode for playback
             await CreateOutputNodeAsync();
+            if (outputNode == null) return;
+
+            // Create the input nodes
             for (int i = 0; i < 4; i++)
             {
                 inputNodes[i] = await CreateInputNodeAsync(files[i]);
@@ -118,7 +126,11 @@ namespace MetronomeAmplified.UWP
         // Create the (device) output node
         private async Task CreateOutputNodeAsync()
         {
+            if (audioGraph == null)
+                return;
             CreateAudioDeviceOutputNodeResult result = await audioGraph.CreateDeviceOutputNodeAsync();
+            if (result == null)
+                return;
             if (result.Status != AudioDeviceNodeCreationStatus.Success)
                 return;
             outputNode = result.DeviceOutputNode;

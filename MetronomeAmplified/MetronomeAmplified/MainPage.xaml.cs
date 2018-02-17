@@ -129,9 +129,9 @@ namespace MetronomeAmplified
         {
             await Navigation.PushAsync(new SongPage(this, song));
         }
-        private void LoadPageHelp(object sender, EventArgs e)
+        private async void LoadPageHelp(object sender, EventArgs e)
         {
-            DisplayAlert("Message", "I should probably load the help page now.", "But, nah...");
+            await Navigation.PushAsync(new HelpPage());
         }
         private async void LoadPageSettings(object sender, EventArgs e)
         {

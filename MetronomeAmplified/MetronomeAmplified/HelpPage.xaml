@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MetronomeAmplified.HelpPage"
+             BackgroundImage="wood_bg_texture.jpg">
+    <ContentPage.Content>
+        <Grid Margin="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0" x:Name="HelpHeaders">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" Orientation="Vertical">
+                    <Label FontSize="24" TextColor="White" Text="Help Sections" />
+                    <Label FontSize="20" TextColor="Wheat" Text="Navigating the App">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoadSectionNavigation" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label FontSize="20" TextColor="Wheat" Text="Controlling the Experience">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoadSectionControlling" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label FontSize="20" TextColor="Wheat" Text="Crafting Your Song">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoadSectionCrafting" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label FontSize="20" TextColor="Wheat" Text="Managing Song Files">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoadSectionManaging" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="Back" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Clicked="ReturnFromHelp" />
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout x:Name="HelpContent" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="False">
+
+                <Label Grid.Row="0" FontSize="24" TextColor="White" x:Name="HelpSectionHeader" />
+                
+                <Grid Row="1" RowSpacing="0" ColumnSpacing="0" VerticalOptions="FillAndExpand">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+
+                    <Image Source="cornerul.png" Grid.Row="0" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" />
+                    <Image Source="cornerur.png" Grid.Row="0" Grid.Column="2" />
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="2" />
+                    <Image Source="cornerbl.png" Grid.Row="2" Grid.Column="0" />
+                    <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+                    <Image Source="cornerbr.png" Grid.Row="2" Grid.Column="2" />
+
+                    <AbsoluteLayout x:Name="ContentLayout" Grid.Row="1" Grid.Column="1" BackgroundColor="White">
+                        <Image x:Name="ContentImage" Aspect="AspectFill" />
+                        <Image x:Name="ArrowImage" Source="help_arrow.png" Aspect="AspectFill" />
+                        <Label x:Name="ContentText" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Image x:Name="BackArrow" Source="help_left.png">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BackPressed" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image x:Name="ForwardArrow" Source="help_right.png">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ForwardPressed" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </AbsoluteLayout>
+
+                </Grid>
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="Back" BackgroundColor="SaddleBrown" TextColor="White" FontSize="14" Clicked="BackToCategories" />
+                </StackLayout>
+                
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
