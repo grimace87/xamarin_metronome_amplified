@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <SplashScreenSource>C:\Users\Thomas\Desktop\TerribleMetronomeImage.png</SplashScreenSource>
-    <Source>C:\Users\Thomas\Desktop\TerribleMetronomeIcon.png</Source>
-    <AppIconSource>C:\Users\Thomas\Desktop\TerribleMetronomeIcon.png</AppIconSource>
-    <MediumTileSource>C:\Users\Thomas\Desktop\TerribleMetronomeIcon.png</MediumTileSource>
-    <WideTileSource>C:\Users\Thomas\Desktop\TerribleMetronomeIcon.png</WideTileSource>
-    <PackageLogoSource>C:\Users\Thomas\Desktop\TerribleMetronomeIcon.png</PackageLogoSource>
+    <SplashScreenSource>C:\Projects\VS\MetronomeAmplified\images\splash.png</SplashScreenSource>
+    <Source>C:\Projects\VS\MetronomeAmplified\images\icon.png</Source>
+    <AppIconSource>C:\Projects\VS\MetronomeAmplified\images\icon.png</AppIconSource>
+    <MediumTileSource>C:\Projects\VS\MetronomeAmplified\images\icon.png</MediumTileSource>
+    <WideTileSource>C:\Projects\VS\MetronomeAmplified\images\icon.png</WideTileSource>
+    <PackageLogoSource>C:\Projects\VS\MetronomeAmplified\images\icon.png</PackageLogoSource>
+    <SmallTileSource>C:\Projects\VS\MetronomeAmplified\images\icon.png</SmallTileSource>
+    <LargeTileSource>C:\Projects\VS\MetronomeAmplified\images\icon.png</LargeTileSource>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
