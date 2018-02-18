@@ -2,9 +2,7 @@
 A cross-platform metronome app - a time-keeping training aid for musicians.
 Made for Android Kitkat and above, Windows 10, and Windows 10 Phone.
 
-![Sample Image](images/screenshot.png)
-
-This application is currently under development. The above screenshot may not accurately illustrate the final product.
+![Sample Image](image_assets/screenshot.png)
 
 ## About
 The intention of this application is to support my own education. I do not intend to make money out of this project, and will only release it for free download from respective app stores. It is intended to be competitive alongside similar existing apps in the market, by offering a similar or superior feature set in the form of a free product.

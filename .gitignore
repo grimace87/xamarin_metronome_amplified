@@ -2,3 +2,7 @@
 /packages
 **/bin
 **/obj
+**/AppPackages
+**/BundleArtifacts
+/store_data
+MetronomeAmplified/MetronomeAmplified.UWP/MetronomeAmplified.UWP_StoreKey.pfx

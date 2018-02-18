@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="94fd1704-ad2f-43d7-8fbf-eb4c6d8281f6" Publisher="CN=Thomas" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="94fd1704-ad2f-43d7-8fbf-eb4c6d8281f6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="28309ShiningGrimace.MetronomeAmplified" Publisher="CN=192CA1D3-0F6D-41F2-BD11-0058456D5E98" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="87dfe3cf-ac4c-4263-8222-f74ff3ea80e0" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>MetronomeAmplified.UWP</DisplayName>
-    <PublisherDisplayName>Thomas</PublisherDisplayName>
+    <DisplayName>Metronome Amplified</DisplayName>
+    <PublisherDisplayName>Shining Grimace</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
