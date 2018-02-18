@@ -61,12 +61,12 @@ namespace MetronomeAmplified
             {
                 Section selected = (Section)listSections.SelectedItem;
                 int index = CurrentSong.Sections.IndexOf(selected);
-                if (index == ParentPage.Playback.CurrentSection)
+                if (index == MainPage.Playback.CurrentSection)
                 {
-                    if (ParentPage.Playback.CurrentSection > 0)
-                        ParentPage.Playback.CurrentSection--;
-                    ParentPage.Playback.CurrentNote = 0;
-                    ParentPage.Playback.CurrentRep = 0;
+                    if (MainPage.Playback.CurrentSection > 0)
+                        MainPage.Playback.CurrentSection--;
+                    MainPage.Playback.CurrentNote = 0;
+                    MainPage.Playback.CurrentRep = 0;
                 }
                 if (selected == null)
                     return;
@@ -99,7 +99,7 @@ namespace MetronomeAmplified
         }
         private async void SaveSong(object sender, EventArgs e)
         {
-            IPlatformStorage storage = ParentPage.PlatformStorage;
+            IPlatformStorage storage = MainPage.PlatformStorage;
             string fileName = CurrentSong.Name + ".gma";
             bool exists = await storage.FileExists(fileName);
             if (exists)
@@ -184,7 +184,7 @@ namespace MetronomeAmplified
                     return;
             }
 
-            IPlatformStorage storage = ParentPage.PlatformStorage;
+            IPlatformStorage storage = MainPage.PlatformStorage;
             string[] fileList = await storage.GetExistingFileList();
 
             await Navigation.PushAsync(new SongSelectPage(this, fileList));
@@ -200,7 +200,7 @@ namespace MetronomeAmplified
             }
             
             // Update things on this page
-            SongName = await ParentPage.PlatformStorage.GetNewSongName();
+            SongName = await MainPage.PlatformStorage.GetNewSongName();
             SongList.Clear();
             SongList.Add(Section.GetNewBasicSection());
             ParentPage.UpdateDisplay();
@@ -218,7 +218,7 @@ namespace MetronomeAmplified
         public async void LoadSong(string fileName)
         {
 
-            IPlatformStorage storage = ParentPage.PlatformStorage;
+            IPlatformStorage storage = MainPage.PlatformStorage;
             await storage.OpenFile(fileName, false);
             try
             {
@@ -289,7 +289,7 @@ namespace MetronomeAmplified
 
         public async Task<bool> DeleteSong(string fileName)
         {
-            IPlatformStorage storage = ParentPage.PlatformStorage;
+            IPlatformStorage storage = MainPage.PlatformStorage;
             bool success = await storage.DeleteFile(fileName);
             return success;
         }

@@ -45,27 +45,27 @@ namespace MetronomeAmplified.Droid
 
             // Give the media session some capabilities, including the ability to be controlled by Media Buttons
             PlaybackStateCompat.Builder playbackState = new PlaybackStateCompat.Builder().SetActions(PlaybackStateCompat.ActionPlay | PlaybackStateCompat.ActionPlayPause);
-            NotificationCompat.Builder noti = new NotificationCompat.Builder(this.context);
-            noti.SetOngoing(true);
-            noti.SetSmallIcon(Resource.Drawable.icon);
-            noti.SetContentTitle("Metronome Amplified");
-            noti.SetContentText("Control");
+            NotificationCompat.Builder notiBuilder = new NotificationCompat.Builder(this.context);
+            notiBuilder.SetOngoing(true);
+            notiBuilder.SetSmallIcon(Resource.Drawable.icon);
+            notiBuilder.SetContentTitle("Metronome Amplified");
+            notiBuilder.SetContentText("Control");
 
             // Make a pending intent to focus the app
             Intent intent = new Intent(this.context, typeof(MainActivity));
             PendingIntent pend = PendingIntent.GetActivity(this.context, NOTIFICATION_ID, intent, PendingIntentFlags.CancelCurrent);
-            noti.SetContentIntent(pend);
-
+            notiBuilder.SetContentIntent(pend);
+            /*
             // Make an intent to stop the player
             Intent stopIntent = new Intent(this.context, typeof(ActionService));
             PendingIntent stopPending = PendingIntent.GetService(this.context, NOTIFICATION_ID, stopIntent, PendingIntentFlags.CancelCurrent);
-            noti.AddAction(Resource.Drawable.stopbutton, "Stop", stopPending);
-
+            notiBuilder.AddAction(Resource.Drawable.stopbutton, "Stop", stopPending);
+            */
             // Set the amount of visible detail for show on the lock screen (nothing need be private here)
-            noti.SetVisibility(NotificationCompat.VisibilityPublic);
+            notiBuilder.SetVisibility(NotificationCompat.VisibilityPublic);
 
             // Build the notification
-            notify = noti.Build();
+            notify = notiBuilder.Build();
 
         }
 

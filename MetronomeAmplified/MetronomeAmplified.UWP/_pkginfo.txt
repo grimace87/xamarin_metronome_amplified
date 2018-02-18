@@ -1,1 +1,1 @@
-C:\Projects\VS\MetronomeAmplified\MetronomeAmplified\MetronomeAmplified.UWP\bin\ARM\Release\Upload\MetronomeAmplified.UWP_1.1.0.0\MetronomeAmplified.UWP_1.1.0.0_x86_x64_arm.appxbundle
+C:\Projects\VS\MetronomeAmplified\MetronomeAmplified\MetronomeAmplified.UWP\bin\ARM\Release\Upload\MetronomeAmplified.UWP_1.1.1.0\MetronomeAmplified.UWP_1.1.1.0_x86_x64_arm.appxbundle

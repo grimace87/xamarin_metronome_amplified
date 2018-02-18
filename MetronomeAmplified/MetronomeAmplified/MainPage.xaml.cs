@@ -18,26 +18,26 @@ namespace MetronomeAmplified
     public partial class MainPage : ContentPage
     {
         // Settings and state and such
-        private SettingsObject Settings;
-        public PlaybackObject Playback;
-        public IPlatformStorage PlatformStorage;
-        private IPlatformAudioPlayer AudioPlayer;
+        private static SettingsObject Settings;
+        public static PlaybackObject Playback;
+        public static IPlatformStorage PlatformStorage;
+        private static IPlatformAudioPlayer AudioPlayer;
 
         // The current song
-        private Song song;
+        private static Song song;
 
         // The timers
-        private Timer timer;
-        private bool flashTimerRunning;
+        private static Timer timer;
+        private static bool flashTimerRunning;
         
         // The last system timer reading when the 'TAP' button was last pressed
         private Int32 LastTapTime;
 
         // The list of tone sets
-        private string[] ToneStrings = { "Basic Drum Kit", "Wooden Blocks" };
+        private static string[] ToneStrings = { "Basic Drum Kit", "Wooden Blocks" };
 
         // Reference to the BoxView in the section display
-        private BoxView SectionIndicatorBox;
+        private static BoxView SectionIndicatorBox;
 
         // Indicate that seeking was done and so the current note should be played without incrementing first
         private bool SeekWasUsed = false;
@@ -51,19 +51,24 @@ namespace MetronomeAmplified
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
-            // Stash the platform storage and audio interface object locally
-            PlatformStorage = platformStorage;
-            AudioPlayer = audioPlayer;
+            // Don't re-create assets if the app is already running and the song etc. are already created
+            if (PlatformStorage == null || AudioPlayer == null || Settings == null || Playback == null || song == null || timer == null)
+            {
+                // Stash the platform storage and audio interface object locally
+                PlatformStorage = platformStorage;
+                AudioPlayer = audioPlayer;
 
-            // Create the settings and playback objects
-            Settings = new SettingsObject(platformStorage);
-            Playback = new PlaybackObject();
+                // Create the settings and playback objects
+                Settings = new SettingsObject(platformStorage);
+                Playback = new PlaybackObject();
 
-            // Create a new default song
-            song = new Song();
-
-            // Update the section display
-            this.SizeChanged += (sender, e) => {
+                // Create a new default song and timer
+                song = new Song();
+                timer = new Timer(TimerElapsed, 1000);
+            }
+            
+            // Update the section display when MainPage size changes
+            SizeChanged += (sender, e) => {
 
                 // Get content window sizes
                 double width = this.Width;
@@ -86,21 +91,25 @@ namespace MetronomeAmplified
 
             };
             
+            // Set image on the play-stop button
+            if (Playback.IsPlaying) PlaybackCtrlPlayStop.Source = "stopbutton.png";
+            else PlaybackCtrlPlayStop.Source = "playbutton.png"; ;
+
             // Populate the song display when the layout is measured
             layoutSectionDisplay.MeasurePerformed += UpdateDisplay;
-                
+            
+            // Initialise display parameters
             LastProgressSection = false;
             LastProgressSong = false;
             LastProgressSession = false;
 
             // Initialise the timer-type stuff
-            timer = new Timer(TimerElapsed, 1000);
             TempoSliderChanged(null, null);
             flashTimerRunning = false;
             LastTapTime = -1;
             
         }
-
+        
         protected async override void OnAppearing()
         {
             if (song.Name == null)
